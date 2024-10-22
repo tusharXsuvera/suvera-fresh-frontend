@@ -2,6 +2,8 @@ export const category = [
   {
     id: 0,
     name: "Chicken",
+    coverImage: "images/chicken.jpg",
+    title: "Fresh and high-quality chicken cuts.",
     products: [
       {
         id: 0,
@@ -38,6 +40,8 @@ export const category = [
   {
     id: 1,
     name: "Mutton",
+    coverImage: "images/mutton.jpg",
+    title: "Tender mutton cuts for various dishes.",
     products: [
       {
         id: 0,
@@ -68,10 +72,13 @@ export const category = [
   {
     id: 2,
     name: "Fish",
+    coverImage: "images/fish.jpg",
+    title: "A variety of fresh fish options.",
     products: [
       {
         id: 0,
         name: "Salmon Fillets",
+
         description: "Taste your favourite delicious Fish",
         price: 1250,
       },
@@ -104,6 +111,8 @@ export const category = [
   {
     id: 3,
     name: "Eggs",
+    coverImage: "images/egg.jpg",
+    title: "Fresh eggs from local farms.",
     products: [
       {
         id: 0,

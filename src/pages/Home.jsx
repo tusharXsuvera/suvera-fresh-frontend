@@ -6,6 +6,7 @@ import "../css/Home.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "@ant-design/react-slick";
+import { category } from "../utils/categories";
 export default function Home() {
   var settings = {
     dots: true,
@@ -43,6 +44,29 @@ export default function Home() {
       </Slider>
       <div className="category_section">
         <h1>Pick From Your Favorite Category </h1>
+        <div className="two_section">
+          <div className="category_flex">
+            {category.map((item, key) => {
+              return (
+                <div key={key} className="category_cards">
+                  <div className="category_cards__text">
+                    <h2>{item.name}</h2>
+                    <h3>{item.title}</h3>
+                  </div>
+                  <img
+                    src={item.coverImage}
+                    alt="category image"
+                    className="category_img"
+                  />
+                  <div className="explore_more__flex">
+                    <span className="explore_more__btn">Explore More</span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <div className="parallax_section"></div>
+        </div>
       </div>
       <Footer />
     </div>
