@@ -1,7 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 export default function Home() {
   return (
-    <div>Home</div>
-  )
+    <div>
+      <Nav />
+      <Footer />
+    </div>
+  );
 }
