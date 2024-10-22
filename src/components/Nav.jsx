@@ -1,9 +1,10 @@
 import React from "react";
 import "../css/Nav.css";
+
 import { Link } from "react-router-dom";
 export default function Nav() {
   return (
-    <div className="bg">
+    <div className="nav_bg">
       <div className="split_nav">
         <Link to="/">
           <img
@@ -19,10 +20,10 @@ export default function Nav() {
         <Link to="contact-us">
           <h3>Contact Us</h3>
         </Link>
-        <span className="split_nav">
+        <Link className="split_nav">
           <h3> ₹0.00 </h3>
           <img src="/images/cart.png" alt="cart image" className="cart_img" />
-        </span>
+        </Link>
       </div>
     </div>
   );
