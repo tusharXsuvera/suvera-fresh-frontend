@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import "../css/Global.css";
+import "../css/Home.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "@ant-design/react-slick";
@@ -40,6 +41,9 @@ export default function Home() {
           <img src="/images/egg.jpg" alt="egg image" className="banner_img" />
         </div>
       </Slider>
+      <div className="category_section">
+        <h1>Pick From Your Favorite Category </h1>
+      </div>
       <Footer />
     </div>
   );
