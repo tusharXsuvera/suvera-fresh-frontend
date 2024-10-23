@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "../css/Global.css";
 import "../css/Category.css";
@@ -23,7 +24,7 @@ export default function Category() {
               <div key={key}>
                 <span
                   className={
-                    item.id == selectedCat
+                    item.id === selectedCat
                       ? "categor_bar_options active"
                       : "categor_bar_options"
                   }
@@ -41,18 +42,23 @@ export default function Category() {
         {category[selectedCat].products.map((item, key) => {
           return (
             <div key={key} className="product_flex">
+              {/* <Link to={`/product-detail/${item.id}`}> */}
               <img
                 src={item.image}
                 alt="product image"
                 className="product_img"
               />
+              {/* </Link> */}
               <div className="prod_text">
                 <h2>{item.name}</h2>
                 <p>{item.description}</p>
                 <h2>₹ {item.price}</h2>
-                <div className="prod_btn__flex">
-                  <span className="add_btn">Add</span>
-                </div>
+                <Link
+                  to={`/product-detail/${item.id}`}
+                  className="prod_btn__flex"
+                >
+                  <span className="add_btn">Explore</span>
+                </Link>
               </div>
             </div>
           );

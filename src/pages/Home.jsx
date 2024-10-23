@@ -51,19 +51,19 @@ export default function Home() {
             {category.map((item, key) => {
               return (
                 <div key={key} className="category_cards">
-                  <div className="category_cards__text">
+                  {/* <div className="category_cards__text">
                     <h2>{item.name}</h2>
                     <h3>{item.title}</h3>
-                  </div>
+                  </div> */}
                   <Link to="/category" state={{ id: item.id }}>
                     <img
                       src={item.coverImage}
                       alt="category image"
                       className="category_img"
                     />
-                    <div className="explore_more__flex">
+                    {/* <div className="explore_more__flex">
                       <span className="explore_more__btn">Explore More</span>
-                    </div>
+                    </div> */}
                   </Link>
                 </div>
               );
