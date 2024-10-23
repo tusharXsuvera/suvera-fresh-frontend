@@ -18,5 +18,13 @@
   border-radius: 4px;
   margin-top: -30px;
   cursor: pointer;
-  z-index: 1;
+  /* z-index: 1; */
+}
+.global_layout {
+  padding: 2em 8em;
+}
+@media screen and (max-width: 568px) {
+  .global_layout {
+    padding: 2em;
+  }
 }

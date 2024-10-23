@@ -1,0 +1,15 @@
+.category_bar {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(177, 125, 96);
+  margin: 2em 0px;
+  padding: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.categor_bar_options {
+  font-size: 1.8em;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  color: white;
+}
