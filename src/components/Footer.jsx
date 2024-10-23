@@ -17,10 +17,10 @@ export default function Footer() {
             className="brand_logo"
           />
         </Link>
-        <Link to="about-us">
+        <Link to="/about-us">
           <h3>About Us</h3>
         </Link>
-        <Link to="contact-us">
+        <Link to="/contact-us">
           <h3>Contact Us</h3>
         </Link>
         <div className="social_links">
