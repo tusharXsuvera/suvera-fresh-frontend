@@ -23,6 +23,20 @@
 .global_layout {
   padding: 2em 8em;
 }
+.add_btn {
+  width: 200px;
+  height: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: #d90429;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
 @media screen and (max-width: 568px) {
   .global_layout {
     padding: 2em;

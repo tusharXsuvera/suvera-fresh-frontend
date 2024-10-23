@@ -18,6 +18,7 @@ export default function Home() {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
   return (
     <div>
       <Nav />
@@ -54,7 +55,7 @@ export default function Home() {
                     <h2>{item.name}</h2>
                     <h3>{item.title}</h3>
                   </div>
-                  <Link to="/category">
+                  <Link to="/category" state={{ id: item.id }}>
                     <img
                       src={item.coverImage}
                       alt="category image"
