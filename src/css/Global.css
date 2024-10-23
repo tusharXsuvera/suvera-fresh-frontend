@@ -10,7 +10,7 @@
   max-height: 500px;
 }
 .explore_more__btn {
-  background-color: #d90429;
+  background-color: var(--maroon);
   color: #fff;
   text-align: center;
   font-size: 14px;
@@ -29,7 +29,7 @@
   font-size: 16px;
   font-weight: 500;
   border-radius: 4px;
-  background-color: #d90429;
+  background-color: var(--maroon);
   color: #fff;
   display: flex;
   justify-content: center;

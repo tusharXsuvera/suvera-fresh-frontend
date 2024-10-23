@@ -42,13 +42,16 @@ export default function Category() {
         {category[selectedCat].products.map((item, key) => {
           return (
             <div key={key} className="product_flex">
-              {/* <Link to={`/product-detail/${item.id}`}> */}
-              <img
-                src={item.image}
-                alt="product image"
-                className="product_img"
-              />
-              {/* </Link> */}
+              <Link
+                to={`/product-detail/${item.id}`}
+                className="prod_img__outer"
+              >
+                <img
+                  src={item.image}
+                  alt="product image"
+                  className="product_img"
+                />
+              </Link>
               <div className="prod_text">
                 <h2>{item.name}</h2>
                 <p>{item.description}</p>
