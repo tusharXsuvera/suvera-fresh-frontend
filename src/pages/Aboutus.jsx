@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { welcome_para, welcome_para_ans } from "../utils/statements";
 import { about_us__json } from "../utils/aboutusjson";
-import "../css/About&Contact.css";
+import "../css/about&contact.css";
 
 export default function Aboutus() {
   return (

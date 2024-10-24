@@ -2,9 +2,10 @@ import React, { useRef } from "react";
 import Nav from "../components/Nav";
 import NoPage from "./NoPage";
 import Footer from "../components/Footer";
-import "../css/Global.css";
-import "../css/Category.css";
-import { Link, useLocation } from "react-router-dom";
+import "../css/global.css";
+import "../css/category.css";
+import "../css/productDetail.css";
+import { useLocation } from "react-router-dom";
 import { category } from "../utils/categories";
 
 export default function ProductDetail() {
@@ -15,7 +16,9 @@ export default function ProductDetail() {
   const prodDetails = useRef(
     selected_cat && prod_id ? category[selected_cat].products[prod_id] : 0
   );
-  console.log(prodDetails, "prod");
+  const similarProducts = useRef(
+    selected_cat && prod_id ? category[selected_cat].similar_prod : 0
+  );
   if (!prodDetails.current) return <NoPage />;
   return (
     <div>
@@ -38,6 +41,27 @@ export default function ProductDetail() {
               <b>0</b>
               <div className="quantity_btn">-</div>
             </div>
+          </div>
+        </div>
+        <div>
+          <h1>Similar Products </h1>
+          <div className="similar_flex">
+            {similarProducts.current.map((item, key) => {
+              return (
+                <div className="similar_prod__card">
+                  <img
+                    src={item.image}
+                    alt="similar products"
+                    className="similar_prod__img"
+                  />
+                  <div className="prod_text">
+                    <h2>{item.name}</h2>
+                    <p>{item.description}</p>
+                    <h2>₹ {item.price}</h2>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

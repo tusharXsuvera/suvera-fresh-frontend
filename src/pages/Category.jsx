@@ -3,8 +3,8 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import "../css/Global.css";
-import "../css/Category.css";
+import "../css/global.css";
+import "../css/category.css";
 import { category } from "../utils/categories";
 
 export default function Category() {

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../css/Nav.css";
+import "../css/nav.css";
 import { Link } from "react-router-dom";
 export default function Nav() {
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Nav() {
           <h3>Contact Us</h3>
         </Link>
         <Link to="/" className="split_nav">
-          <h3> ₹0.00 </h3>
+          <h3> (0) </h3>
           <img src="/images/cart.png" alt="cart image" className="cart_img" />
         </Link>
       </div>
