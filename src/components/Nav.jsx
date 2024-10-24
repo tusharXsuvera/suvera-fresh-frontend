@@ -15,6 +15,12 @@ export default function Nav() {
             className="brand_logo"
           />
         </Link>
+        <Link to="/">
+          <h3>Home</h3>
+        </Link>
+        <Link to="/category">
+          <h3>Category</h3>
+        </Link>
         <Link to="/about-us">
           <h3>About Us</h3>
         </Link>
