@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import "../css/nav.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function Nav() {
+  const quantity = useSelector((state) => state.cartSlice);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -28,7 +30,7 @@ export default function Nav() {
           <h3>Contact Us</h3>
         </Link>
         <Link to="/" className="split_nav">
-          <h3> (0) </h3>
+          <h3> ({quantity.value}) </h3>
           <img src="/images/cart.png" alt="cart image" className="cart_img" />
         </Link>
       </div>

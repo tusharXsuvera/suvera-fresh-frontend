@@ -5,11 +5,15 @@ import Footer from "../components/Footer";
 import "../css/global.css";
 import "../css/category.css";
 import "../css/productDetail.css";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import { addToCart, removeToCart } from "../reduxStore/slices/addToCart";
 import { category } from "../utils/categories";
 
 export default function ProductDetail() {
   const location = useLocation();
+  const dispatch = useDispatch();
+  const quantity = useSelector((state) => state.cartSlice);
   const queryParams = new URLSearchParams(location.search);
   const selected_cat = queryParams.get("selected_cat");
   const prod_id = queryParams.get("prod_id");
@@ -37,9 +41,19 @@ export default function ProductDetail() {
             <p>{prodDetails.current.description}</p>
             <h2>₹ {prodDetails.current.price}</h2>
             <div className="quantity_flex">
-              <div className="quantity_btn">+</div>
-              <b>0</b>
-              <div className="quantity_btn">-</div>
+              <div
+                className="quantity_btn"
+                onClick={() => dispatch(addToCart())}
+              >
+                +
+              </div>
+              <b>{quantity.value}</b>
+              <div
+                className="quantity_btn"
+                onClick={() => dispatch(removeToCart())}
+              >
+                -
+              </div>
             </div>
           </div>
         </div>

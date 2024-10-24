@@ -55,6 +55,7 @@
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
+  padding-bottom: 2px;
 }
 .quantity_flex {
   display: flex;
