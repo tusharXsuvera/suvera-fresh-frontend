@@ -12,7 +12,6 @@ export default function Category() {
   const [selectedCat, setSelectedCat] = useState(
     (location.state && location.state.id) || 0
   );
-
   return (
     <div>
       <Nav />
@@ -43,7 +42,7 @@ export default function Category() {
           return (
             <div key={key} className="product_flex">
               <Link
-                to={`/product-detail/${item.id}`}
+                to={`/product-detail/${item.name}?selected_cat=${selectedCat}&prod_id=${item.id}`}
                 className="prod_img__outer"
               >
                 <img
@@ -57,7 +56,7 @@ export default function Category() {
                 <p>{item.description}</p>
                 <h2>₹ {item.price}</h2>
                 <Link
-                  to={`/product-detail/${item.id}`}
+                  to={`/product-detail/${item.name}?selected_cat=${selectedCat}&prod_id=${item.id}`}
                   className="prod_btn__flex"
                 >
                   <span className="add_btn">Explore</span>
