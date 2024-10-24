@@ -48,7 +48,7 @@ export default function ProductDetail() {
           <div className="similar_flex">
             {similarProducts.current.map((item, key) => {
               return (
-                <div className="similar_prod__card">
+                <div className="similar_prod__card" key={key}>
                   <img
                     src={item.image}
                     alt="similar products"
