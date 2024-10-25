@@ -35,47 +35,47 @@ export default function Contact() {
       <div className="global_layout">
         <div className="form_div">
           <h1>We've been waiting for you.</h1>
-
-          <form className="form">
-            <h2>Send us a Message</h2>
-            <div>
-              <input
-                type="text"
-                name="username"
-                placeholder="Enter your name"
-                className="input_type"
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                className="input_type"
-              />
-            </div>
-            <div>
-              <input
-                type="number"
-                name="phoneNumber"
-                placeholder="Enter your number"
-                className="input_type"
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                cols="30"
-                rows="5"
-                placeholder="Enter your message"
-                className="input_type"
-              />
-            </div>
-          </form>
-          <button type="submit" value="Submit" className="submit_btn">
-            Submit
-          </button>
-
+          <div className="form_outer">
+            <form className="form">
+              <h2>Send us a Message</h2>
+              <div>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Enter your name"
+                  className="input_type"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  className="input_type"
+                />
+              </div>
+              <div>
+                <input
+                  type="number"
+                  name="phoneNumber"
+                  placeholder="Enter your number"
+                  className="input_type"
+                />
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  cols="30"
+                  rows="5"
+                  placeholder="Enter your message"
+                  className="input_type"
+                />
+              </div>
+            </form>
+            <button type="submit" value="Submit" className="submit_btn">
+              Submit
+            </button>
+          </div>
           <div style={{ height: "100vh", width: "100%", marginTop: "20px" }}>
             <GoogleMapReact
               bootstrapURLKeys={{ key: "" }}
