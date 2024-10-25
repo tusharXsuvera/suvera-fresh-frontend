@@ -61,7 +61,7 @@ export default function Category() {
                   to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
                   className="prod_btn__flex"
                 >
-                  <span className="add_btn">Explore</span>
+                  <span className="add_btn">ADD</span>
                 </Link>
               </div>
             </div>

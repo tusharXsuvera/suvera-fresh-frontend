@@ -50,22 +50,24 @@ export default function Home() {
           <div className="category_flex">
             {category.map((item, key) => {
               return (
-                <div key={key} className="category_cards">
-                  {/* <div className="category_cards__text">
+                <Link
+                  to={`/category?selected_cat=${item.id}`}
+                  key={key}
+                  className="category_cards"
+                >
+                  <div className="category_cards__text">
                     <h2>{item.name}</h2>
                     <h3>{item.title}</h3>
-                  </div> */}
-                  <Link to={`/category?selected_cat=${item.id}`}>
-                    <img
-                      src={item.coverImage}
-                      alt="category image"
-                      className="category_img"
-                    />
-                    {/* <div className="explore_more__flex">
-                      <span className="explore_more__btn">Explore More</span>
-                    </div> */}
-                  </Link>
-                </div>
+                  </div>
+                  <img
+                    src={item.coverImage}
+                    alt="category image"
+                    className="category_img"
+                  />
+                  <div className="explore_more__flex">
+                    <span className="explore_more__btn">Explore More</span>
+                  </div>
+                </Link>
               );
             })}
           </div>
