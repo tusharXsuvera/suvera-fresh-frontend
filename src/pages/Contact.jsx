@@ -26,7 +26,7 @@ export default function Contact() {
       lat: 26.4717394,
       lng: 80.3545043,
     },
-    zoom: 11,
+    zoom: 13,
   };
 
   return (
