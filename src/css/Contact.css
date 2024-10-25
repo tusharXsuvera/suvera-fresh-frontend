@@ -1,0 +1,36 @@
+.form_div {
+  text-align: center;
+}
+.form {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+}
+.submit_btn {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  padding: 10px 0px;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.input_type {
+  padding: 10px;
+  border: none;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
