@@ -17,7 +17,7 @@ export default function Category() {
     <div>
       <Nav />
       <div className="global_layout">
-        <h1>Order From Your Favourite Category!{selected_cat}</h1>
+        <h1>Order From Your Favourite Category!</h1>
         <div className="category_bar">
           {category.map((item, key) => {
             return (
