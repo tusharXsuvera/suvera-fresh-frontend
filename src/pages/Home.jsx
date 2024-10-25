@@ -55,7 +55,7 @@ export default function Home() {
                     <h2>{item.name}</h2>
                     <h3>{item.title}</h3>
                   </div> */}
-                  <Link to="/category" state={{ id: item.id }}>
+                  <Link to={`/category?selected_cat=${item.id}`}>
                     <img
                       src={item.coverImage}
                       alt="category image"

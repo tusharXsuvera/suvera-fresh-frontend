@@ -30,7 +30,7 @@ export default function Footer() {
           >
             <FaFacebookF size={20} color="blue" />
           </Link>
-          <Link to="https://www.instagram.com/suverafoods/" target="_blank">
+          <Link to="https://www.instagram.com/suverafresh/" target="_blank">
             <FaSquareInstagram size={25} color="darkred" />
           </Link>
           <Link to="https://x.com/suverafoods" target="_blank">

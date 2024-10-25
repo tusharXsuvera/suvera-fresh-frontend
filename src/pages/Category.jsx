@@ -9,40 +9,42 @@ import { category } from "../utils/categories";
 
 export default function Category() {
   const location = useLocation();
-  const [selectedCat, setSelectedCat] = useState(
-    (location.state && location.state.id) || 0
+  const queryParams = new URLSearchParams(location.search);
+  const [selected_cat, setSelectedCat] = useState(
+    queryParams.get("selected_cat") || 0
   );
   return (
     <div>
       <Nav />
       <div className="global_layout">
-        <h1>Order From Your Favourite Category!</h1>
+        <h1>Order From Your Favourite Category!{selected_cat}</h1>
         <div className="category_bar">
           {category.map((item, key) => {
             return (
               <div key={key}>
-                <span
+                <Link
+                  to={`/category?selected_cat=${item.id}`}
                   className={
-                    item.id === selectedCat
+                    item.id == selected_cat
                       ? "categor_bar_options active"
                       : "categor_bar_options"
                   }
                   onClick={() => setSelectedCat(item.id)}
                 >
                   {item.name}
-                </span>
+                </Link>
               </div>
             );
           })}
         </div>
         <h2 style={{ fontWeight: 400 }}>
-          Showing {category[selectedCat].products.length} Results
+          Showing {category[selected_cat].products.length} Results
         </h2>
-        {category[selectedCat].products.map((item, key) => {
+        {category[selected_cat].products.map((item, key) => {
           return (
             <div key={key} className="product_flex">
               <Link
-                to={`/product-detail/${item.name}?selected_cat=${selectedCat}&prod_id=${item.id}`}
+                to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
                 className="prod_img__outer"
               >
                 <img
@@ -56,7 +58,7 @@ export default function Category() {
                 <p>{item.description}</p>
                 <h2>₹ {item.price}</h2>
                 <Link
-                  to={`/product-detail/${item.name}?selected_cat=${selectedCat}&prod_id=${item.id}`}
+                  to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
                   className="prod_btn__flex"
                 >
                   <span className="add_btn">Explore</span>
