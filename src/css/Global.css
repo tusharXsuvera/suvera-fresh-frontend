@@ -9,15 +9,7 @@
   height: 100%;
   max-height: 500px;
 }
-.explore_more__btn {
-  background-color: var(--maroon);
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  padding: 6px 26px;
-  border-radius: 4px;
-  cursor: pointer;
-}
+
 .global_layout {
   padding: 2em 8em;
 }

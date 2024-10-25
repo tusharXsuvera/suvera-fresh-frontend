@@ -11,20 +11,30 @@
   width: 100%;
   max-width: 300px;
   min-width: 200px;
-  height: 200px;
+  height: 100%;
   border-radius: 20px;
+  opacity: 0.5;
   cursor: pointer;
 }
-.explore_more__flex {
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 20px;
-  margin-top: -50px;
+.explore_more {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 }
+.explore_more__btn {
+  background-color: var(--maroon);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 6px 26px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .category_flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 10px;
   width: 60%;
 }
 .parallax_section {
@@ -45,22 +55,28 @@
   padding-top: 20px;
   gap: 10px;
 }
-.category_cards__text {
+.category_cards {
   position: relative;
+  background-color: black;
+  border-radius: 20px;
+}
+.category_cards__text {
+  position: absolute;
   z-index: 1;
+  padding-top: 10px;
   padding-left: 20px;
-  margin-bottom: -65px;
 }
 .category_cards__text h2 {
   font-family: sans-serif;
   font-size: 2.5em;
   font-weight: 600;
-  color: var(--maroon);
+  color: white;
 }
 .category_cards__text h3 {
   text-decoration: none;
   font-family: sans-serif;
   font-size: 1.4em;
+  font-weight: 500;
   color: white;
 }
 
@@ -76,7 +92,6 @@
 @media screen and (max-width: 568px) {
   .category_flex {
     width: 100%;
-    gap: 40px;
   }
   .parallax_section {
     width: 100%;

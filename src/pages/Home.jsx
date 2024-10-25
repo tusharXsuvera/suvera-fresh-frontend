@@ -64,7 +64,7 @@ export default function Home() {
                     alt="category image"
                     className="category_img"
                   />
-                  <div className="explore_more__flex">
+                  <div className="explore_more">
                     <span className="explore_more__btn">Explore More</span>
                   </div>
                 </Link>
