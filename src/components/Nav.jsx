@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../css/nav.css";
+import "../css/Nav.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 export default function Nav() {

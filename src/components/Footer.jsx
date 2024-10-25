@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/nav.css";
-import "../css/footer.css";
+import "../css/Nav.css";
+import "../css/Footer.css";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
