@@ -28,7 +28,6 @@ export default function Contact() {
     },
     zoom: 13,
   };
-
   return (
     <div>
       <Nav />
