@@ -1,7 +1,12 @@
 .category_bar {
   display: flex;
   justify-content: space-evenly;
-  background-color: rgb(177, 125, 96);
+  /* background-color: rgb(177, 125, 96); */
+  background: linear-gradient(
+    to right,
+    rgba(96, 2, 0, 0.8),
+    rgba(177, 125, 96, 0.8)
+  );
   margin: 2em 0px;
   padding: 20px;
   border-radius: 20px;
