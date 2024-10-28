@@ -4,7 +4,7 @@ import NoPage from "./NoPage";
 import Footer from "../components/Footer";
 import "../css/Global.css";
 import "../css/Category.css";
-import "../css/Productdetail.css";
+import "../css/Product.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addToCart, removeToCart } from "../reduxStore/slices/addToCart";
