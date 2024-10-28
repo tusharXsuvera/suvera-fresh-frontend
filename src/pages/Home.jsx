@@ -46,7 +46,7 @@ export default function Home() {
       </Slider>
       <div className="category_section">
         <h1>Pick From Your Favourite Category </h1>
-        <div className="two_section">
+        <section className="two_section">
           <div className="category_flex">
             {category.map((item, key) => {
               return (
@@ -72,7 +72,7 @@ export default function Home() {
             })}
           </div>
           <div className="parallax_section"></div>
-        </div>
+        </section>
       </div>
       <Footer />
     </div>
