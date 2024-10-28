@@ -1,7 +1,6 @@
 .category_bar {
   display: flex;
   justify-content: space-evenly;
-  /* background-color: rgb(177, 125, 96); */
   background: linear-gradient(
     to right,
     rgba(96, 2, 0, 0.8),
