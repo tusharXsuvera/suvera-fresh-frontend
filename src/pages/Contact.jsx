@@ -106,7 +106,7 @@ export default function Contact() {
                 Submit
               </button>
             </div>
-            <div style={{ aspectRatio: 1, width: "100%" }}>
+            <div style={{ aspectRatio: 1.3, width: "100%" }}>
               <GoogleMapReact
                 bootstrapURLKeys={{ key: "" }}
                 defaultCenter={defaultProps.center}
