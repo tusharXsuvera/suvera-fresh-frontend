@@ -79,42 +79,41 @@ export default function Aboutus() {
           </div>
           <img src="/images/ceo.jpg" alt="ceo image" className="ceo_image" />
         </section>
-        <section className="ordering_methods">
-          <h1 className="main_heading about-title">
-            FoodChow has introduced three different methods in ordering the
-            food.
-          </h1>
-          <p className="para about-title">
-            Customer of FoodChow can select any method for food ordering.
-            <br />
-            FoodChow is also providing facility to offer all there or any of
-            them ordering method to restaurant owner.
-          </p>
-          <div className="methods_img__flex">
-            <img
-              src="/images/mutton.jpg"
-              alt="methods image"
-              className="methods_img"
-            />
-            <img
-              src="/images/chicken.jpg"
-              alt="methods image"
-              className="methods_img"
-            />
-            <img
-              src="/images/delivery.jpg"
-              alt="methods image"
-              className="methods_img"
-            />
-          </div>
-          <div className="signup_btn__flex">
-            <Link to="/" className="signup_btn__flex signup_btn__about">
-              <span>Sign up in 60 seconds</span>
-              <MdLogin width={100} />
-            </Link>
-          </div>
-        </section>
       </div>
+      <section className="ordering_methods">
+        <h1 className="main_heading about-title">
+          FoodChow has introduced three different methods in ordering the food.
+        </h1>
+        <p className="para about-title">
+          Customer of FoodChow can select any method for food ordering.
+          <br />
+          FoodChow is also providing facility to offer all there or any of them
+          ordering method to restaurant owner.
+        </p>
+        <div className="methods_img__flex">
+          <img
+            src="/images/mutton.jpg"
+            alt="methods image"
+            className="methods_img"
+          />
+          <img
+            src="/images/chicken.jpg"
+            alt="methods image"
+            className="methods_img"
+          />
+          <img
+            src="/images/delivery.jpg"
+            alt="methods image"
+            className="methods_img"
+          />
+        </div>
+        <div className="signup_btn__flex">
+          <Link to="/" className="signup_btn__flex signup_btn__about">
+            <span>Sign up in 60 seconds</span>
+            <MdLogin width={100} />
+          </Link>
+        </div>
+      </section>
       <Footer />
     </>
   );

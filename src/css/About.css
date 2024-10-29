@@ -42,6 +42,7 @@
 .vision {
   width: 100%;
   max-width: 375px;
+  min-width: 250px;
   height: auto;
 }
 .quotes {
@@ -81,6 +82,7 @@
 .methods_img {
   width: 100%;
   max-width: 300px;
+  min-width: 200px;
   aspect-ratio: 1;
   border-radius: 1.5em;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -88,12 +90,13 @@
 .methods_img__flex {
   display: flex;
   padding: 5em 0px;
-  gap: 2em;
+  justify-content: space-evenly;
+  gap: 5px;
 }
 .signup_btn__about {
-  font-size: 17px;
+  font-size: 1.5em;
   padding: 1em 4em;
-  border-radius: 15px;
+  border-radius: 1em;
   border: 2px solid #000;
   color: #000;
   text-transform: uppercase;
@@ -114,4 +117,32 @@
   background-color: var(--maroon);
   border: 2px solid var(--maroon);
   color: #fff;
+}
+@media screen and (max-width: 725px) {
+  .video_section {
+    flex-wrap: wrap;
+  }
+  .mobile_section {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .quotes {
+    max-width: 100%;
+  }
+  .vision {
+    max-width: 100%;
+  }
+  .ceo_section {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 630px) {
+  .methods_img__flex {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 305px) {
+  .signup_btn__about {
+    padding: 0.5em 1em;
+  }
 }
