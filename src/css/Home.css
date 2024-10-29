@@ -9,50 +9,13 @@
 
 .category_img {
   width: 100%;
-  max-width: 300px;
+  max-width: 415px;
   min-width: 200px;
   height: 100%;
   border-radius: 20px;
   opacity: 0.5;
   cursor: pointer;
-}
-.explore_more {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-}
-.explore_more__btn {
-  background-color: var(--maroon);
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  padding: 6px 26px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.category_flex {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  width: 60%;
-}
-.parallax_section {
-  width: 35%;
-  min-width: 200px;
-  max-height: 500px;
-  min-height: 250px;
-  background-attachment: fixed;
-  background-image: url("/images/mutton.jpg");
-  background-position: 50%;
-  background-size: cover;
-  border-radius: 10px;
-}
-.two_section {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-top: 20px;
-  gap: 10px;
+  overflow: hidden;
 }
 .category_cards {
   position: relative;
@@ -77,6 +40,42 @@
   font-size: 1.4em;
   font-weight: 500;
   color: white;
+}
+.explore_more {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+.explore_more__btn {
+  background-color: var(--maroon);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 6px 26px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.category_flex {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.parallax_section {
+  flex: 1;
+  min-width: 200px;
+  aspect-ratio: 1;
+  background-attachment: fixed;
+  background-image: url("/images/mutton.jpg");
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 10px;
+}
+.two_section {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  gap: 10px;
 }
 
 @media screen and (max-width: 1078px) {

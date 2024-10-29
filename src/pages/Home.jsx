@@ -44,7 +44,7 @@ export default function Home() {
           <img src="/images/egg.jpg" alt="egg image" className="banner_img" />
         </div>
       </Slider>
-      <div className="category_section">
+      <div className="global_layout">
         <h1>Pick From Your Favourite Category </h1>
         <section className="two_section">
           <div className="category_flex">

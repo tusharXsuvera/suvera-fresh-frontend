@@ -63,6 +63,27 @@ export const category = [
         description: "Taste your favourite delicious Chicken",
         price: 600,
       },
+      {
+        id: 3,
+        name: "Chicken Leg Quarters",
+        image: "/images/chicken.jpg",
+        description: "Taste your favourite delicious Chicken",
+        price: 600,
+      },
+      {
+        id: 4,
+        name: "Chicken Leg Quarters",
+        image: "/images/chicken.jpg",
+        description: "Taste your favourite delicious Chicken",
+        price: 600,
+      },
+      {
+        id: 5,
+        name: "Chicken Leg Quarters",
+        image: "/images/chicken.jpg",
+        description: "Taste your favourite delicious Chicken",
+        price: 600,
+      },
     ],
   },
   {

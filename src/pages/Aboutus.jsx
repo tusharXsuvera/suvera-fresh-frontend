@@ -36,7 +36,7 @@ export default function Aboutus() {
           </div>
         </section>
       </div>
-      <section className="mobile_section">
+      <div className="mobile_section">
         <div className="quotes">
           <h1 className="main_heading">Our Promise</h1>
           <p className="para">
@@ -49,7 +49,9 @@ export default function Aboutus() {
             palate.
           </p>
         </div>
+
         <img src="/images/vision.jpg" alt="mobile screen" className="vision" />
+
         <div className="quotes">
           <h1 className="main_heading">Why Choose Us?</h1>
           <p className="para">
@@ -61,7 +63,7 @@ export default function Aboutus() {
             right.
           </p>
         </div>
-      </section>
+      </div>
       <div className="global_layout">
         <section className="ceo_section">
           <div className="ceo_details">

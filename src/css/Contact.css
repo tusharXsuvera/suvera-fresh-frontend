@@ -16,10 +16,8 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-
   padding: 2em 2em 3em;
   width: 100%;
-  max-width: 500px;
 }
 .submit_btn {
   background-color: #04aa6d;
@@ -49,6 +47,7 @@
 .map_section {
   display: flex;
   gap: 1em;
+  justify-content: space-evenly;
 }
 .contact_types__flex {
   display: flex;
@@ -73,7 +72,7 @@
   color: #333;
 }
 
-@media screen and (max-width: 515px) {
+@media screen and (max-width: 715px) {
   .map_section {
     flex-wrap: wrap;
   }

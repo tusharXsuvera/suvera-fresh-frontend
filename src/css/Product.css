@@ -20,13 +20,17 @@
 }
 .similar_prod__img {
   width: 100%;
-  max-width: 285px;
+  max-width: 405px;
   min-width: 200px;
   margin-bottom: 1em;
   border-radius: 4px;
 }
-@media screen and (max-width: 804px) {
+@media screen and (max-width: 1044px) {
+  .similar_prod__card {
+    width: 100%;
+  }
   .similar_prod__img {
     max-width: 100%;
+    height: 40%;
   }
 }

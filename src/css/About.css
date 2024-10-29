@@ -1,31 +1,29 @@
 .play {
   width: 100%;
-  max-width: 450px;
-  min-width: 200px;
-  aspect-ratio: 1.5;
+  max-width: 600px;
+  min-width: 250px;
+  aspect-ratio: 2;
   border-radius: 10px;
 }
 .video_section {
   display: flex;
-  gap: 10px;
-  justify-content: space-around;
+  gap: 1em;
   padding: 2em 0px;
+  margin: 2em 0px;
 }
 .section_left {
-  width: 100%;
-  max-width: 450px;
+  flex: 1;
 }
 .section_rgt {
+  flex: 1;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  max-width: 450px;
+  gap: 3em;
 }
 
 .mobile_section {
   display: flex;
-  justify-content: space-evenly;
 }
 .main_heading {
   font-size: 2.8em;
@@ -41,14 +39,11 @@
 }
 .vision {
   width: 100%;
-  max-width: 375px;
   min-width: 250px;
-  height: auto;
 }
 .quotes {
   background-color: #bc907a;
   width: 100%;
-  max-width: 385px;
   padding: 3.5em;
   display: flex;
   flex-direction: column;
@@ -85,9 +80,8 @@
 }
 .methods_img {
   width: 100%;
-  max-width: 300px;
   min-width: 200px;
-  aspect-ratio: 1;
+  aspect-ratio: 1.8;
   border-radius: 1.5em;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
@@ -95,7 +89,7 @@
   display: flex;
   padding: 5em 0px;
   justify-content: space-evenly;
-  gap: 5px;
+  gap: 2em;
 }
 .signup_btn__about {
   font-size: 1.5em;
@@ -122,7 +116,7 @@
   border: 2px solid var(--maroon);
   color: #fff;
 }
-@media screen and (max-width: 725px) {
+@media screen and (max-width: 825px) {
   .video_section {
     flex-wrap: wrap;
   }
