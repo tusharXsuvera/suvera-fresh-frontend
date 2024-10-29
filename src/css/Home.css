@@ -6,18 +6,40 @@
   font-size: 3em;
   word-spacing: 1px;
 }
-
+.category_flex {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.parallax_section {
+  flex: 1;
+  min-width: 200px;
+  aspect-ratio: 1;
+  background-attachment: fixed;
+  background-image: url("/images/mutton.jpg");
+  background-position: 50%;
+  background-size: cover;
+  border-radius: 10px;
+}
+.two_section {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  gap: 10px;
+}
 .category_img {
   width: 100%;
-  max-width: 415px;
   min-width: 200px;
   height: 100%;
   border-radius: 20px;
   opacity: 0.5;
   cursor: pointer;
-  overflow: hidden;
 }
 .category_cards {
+  width: 100%;
+  max-width: 400px;
   position: relative;
   background-color: black;
   border-radius: 20px;
@@ -54,28 +76,6 @@
   padding: 6px 26px;
   border-radius: 4px;
   cursor: pointer;
-}
-.category_flex {
-  flex: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.parallax_section {
-  flex: 1;
-  min-width: 200px;
-  aspect-ratio: 1;
-  background-attachment: fixed;
-  background-image: url("/images/mutton.jpg");
-  background-position: 50%;
-  background-size: cover;
-  border-radius: 10px;
-}
-.two_section {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 20px;
-  gap: 10px;
 }
 
 @media screen and (max-width: 1078px) {
