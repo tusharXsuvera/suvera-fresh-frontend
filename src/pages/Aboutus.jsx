@@ -97,12 +97,12 @@ export default function Aboutus() {
               className="methods_img"
             />
             <img
-              src="/images/mutton.jpg"
+              src="/images/chicken.jpg"
               alt="methods image"
               className="methods_img"
             />
             <img
-              src="/images/mutton.jpg"
+              src="/images/delivery.jpg"
               alt="methods image"
               className="methods_img"
             />
