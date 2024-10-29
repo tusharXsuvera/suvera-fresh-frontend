@@ -128,7 +128,6 @@
   }
   .mobile_section {
     flex-wrap: wrap;
-    gap: 10px;
   }
   .quotes {
     max-width: 100%;

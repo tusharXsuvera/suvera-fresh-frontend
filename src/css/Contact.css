@@ -7,13 +7,19 @@
   flex-direction: column;
   gap: 15px;
 }
+.form h1 {
+  color: #333;
+  font-size: 2em;
+  text-transform: capitalize;
+}
 .form_outer {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-  border-radius: 8px;
-  padding: 20px 0px 30px;
-  margin-top: 20px;
+
+  padding: 2em 2em 3em;
+  width: 100%;
+  max-width: 500px;
 }
 .submit_btn {
   background-color: #04aa6d;
@@ -21,22 +27,31 @@
   color: white;
   padding: 10px 0px;
   width: 100%;
-
-  max-width: 500px;
+  max-width: 300px;
   border-radius: 4px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 10px 2px;
+  font-size: 1.6em;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 .input_type {
-  padding: 10px;
+  padding: 1.2em;
   border: none;
   width: 100%;
   max-width: 500px;
+  min-width: 200px;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.map_section {
+  display: flex;
+  gap: 1em;
+}
+@media screen and (max-width: 515px) {
+  .map_section {
+    flex-wrap: wrap;
+  }
 }
