@@ -32,6 +32,29 @@ export default function Contact() {
     <div>
       <Nav />
       <div className="global_layout">
+        <div>
+          <div className="header_msg">
+            <h1>Contact us </h1>
+            <hr />
+          </div>
+          <div className="contact_types__flex">
+            <div className="contact_types">
+              <img src="/images/call.png" alt="email us" />
+              <h1>By Email</h1>
+              <span>suverafresh@gmail.com</span>
+            </div>
+            <div className="contact_types">
+              <img src="/images/call.png" alt="email us" />
+              <h1>By Call</h1>
+              <span>1800-4190-788</span>
+            </div>
+            <div className="contact_types">
+              <img src="/images/location.png" alt="email us" />
+              <h1>Locate me</h1>
+              <span>WestCott Building, The Mall</span>
+            </div>
+          </div>
+        </div>
         <div className="form_div">
           <section className="map_section">
             <div className="form_outer">

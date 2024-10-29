@@ -10,6 +10,10 @@ export default function Aboutus() {
     <>
       <Nav />
       <div className="global_layout ">
+        <div className="header_msg">
+          <h1>About us</h1>
+          <hr />
+        </div>
         <section className="video_section">
           <div className="section_left">
             <iframe

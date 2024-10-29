@@ -27,6 +27,21 @@
   letter-spacing: 1px;
   cursor: pointer;
 }
+.header_msg {
+  text-align: center;
+}
+.header_msg h1 {
+  font-size: 4em;
+  font-weight: 400;
+  color: #1b1b1b;
+  margin-bottom: 5px;
+}
+.header_msg hr {
+  display: inline-block;
+  width: 120px;
+  height: 3px;
+  background-color: var(--maroon);
+}
 @media screen and (max-width: 568px) {
   .global_layout {
     padding: 2em;
