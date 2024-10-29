@@ -71,3 +71,48 @@
   flex-direction: column;
   gap: 1.5em;
 }
+.about-title {
+  text-align: center;
+  padding-top: 1em;
+}
+.ordering_methods {
+  padding: 2em;
+}
+.methods_img {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  border-radius: 1.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
+}
+.methods_img__flex {
+  display: flex;
+  padding: 5em 0px;
+  gap: 2em;
+}
+.signup_btn__about {
+  font-size: 17px;
+  padding: 1em 4em;
+  border-radius: 15px;
+  border: 2px solid #000;
+  color: #000;
+  text-transform: uppercase;
+  width: auto;
+  letter-spacing: 0.5px;
+  font-family: poppins, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.signup_btn__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.signup_btn__about:hover {
+  background-color: var(--maroon);
+  border: 2px solid var(--maroon);
+  color: #fff;
+}
