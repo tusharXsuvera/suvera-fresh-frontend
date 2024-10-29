@@ -56,7 +56,8 @@
 }
 .ceo_image {
   width: 100%;
-  max-width: 455px;
+  max-width: 450px;
+  min-width: 200px;
   aspect-ratio: 0.9;
   border-radius: 10px;
 }
@@ -64,13 +65,16 @@
   display: flex;
   gap: 1em;
   padding: 4em 0px;
+  justify-content: space-evenly;
 }
 .ceo_details {
   padding: 2em;
-
   display: flex;
   flex-direction: column;
   gap: 1.5em;
+  width: 100%;
+  max-width: 450px;
+  min-width: 200px;
 }
 .about-title {
   text-align: center;
