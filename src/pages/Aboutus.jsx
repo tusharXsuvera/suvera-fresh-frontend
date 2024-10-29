@@ -49,9 +49,7 @@ export default function Aboutus() {
             palate.
           </p>
         </div>
-
         <img src="/images/vision.jpg" alt="mobile screen" className="vision" />
-
         <div className="quotes">
           <h1 className="main_heading">Why Choose Us?</h1>
           <p className="para">

@@ -63,7 +63,7 @@
   justify-content: space-evenly;
 }
 .ceo_details {
-  padding: 2em;
+  padding: 2em 0em;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
