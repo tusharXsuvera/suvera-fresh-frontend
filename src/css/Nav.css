@@ -22,3 +22,22 @@
   width: 24px;
   cursor: pointer;
 }
+.location_flex {
+  display: flex;
+}
+.location_flex h1 {
+  font-size: 1.6em;
+  font-weight: 600;
+  line-height: 19.5px;
+  color: rgb(18, 18, 18);
+}
+.location_flex h2 {
+  font-size: 1.3em;
+  font-weight: 500;
+  line-height: 15.85px;
+  color: rgb(126, 125, 125);
+}
+.value {
+  font-size: 1.2em;
+  padding-bottom: 15px;
+}
