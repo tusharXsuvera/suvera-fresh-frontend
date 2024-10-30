@@ -1,3 +1,6 @@
+.nav_bg {
+  background-color: #fff;
+}
 .split_nav {
   display: flex;
   justify-content: space-between;
@@ -45,9 +48,37 @@
 .handle_value {
   padding-bottom: 15px;
 }
-
 .hamburger {
   display: none;
+}
+.ham_menu {
+  background-color: #fff;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.hidden {
+  display: none;
+}
+.ham_links {
+  border: 1px solid #333;
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ham_links h3 {
+  font-size: 2.5em;
+  font-family: 500;
+}
+.circle_remove {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  z-index: 1;
 }
 @media screen and (max-width: 899px) {
   .hamburger {

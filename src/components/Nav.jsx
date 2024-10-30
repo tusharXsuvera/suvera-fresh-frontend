@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Nav.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaLocationDot } from "react-icons/fa6";
 import { BsCart3 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { CiCircleRemove } from "react-icons/ci";
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
+  const [showMenu, setShowMenu] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="global_layout">
+    <div className="global_layout nav_bg">
       <div className="split_nav">
         <div className="location_flex">
           <Link to="/">
@@ -54,10 +57,38 @@ export default function Nav() {
             )}
           </Link>
         </div>
-
-        <div className="hamburger">
+        <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
           <RxHamburgerMenu size={20} style={{ cursor: "pointer" }} />
         </div>
+      </div>
+      <div className={showMenu ? "ham_menu " : "ham_menu hidden"}>
+        <div className="circle_remove" onClick={() => setShowMenu(!showMenu)}>
+          <CiCircleRemove size={40} />
+        </div>
+        <Link to="/">
+          <div className="ham_links">
+            <h3>Home </h3>
+            <FaArrowRightLong size={20} />
+          </div>
+        </Link>
+        <Link to="/category">
+          <div className="ham_links">
+            <h3>Category </h3>
+            <FaArrowRightLong size={20} />
+          </div>
+        </Link>
+        <Link to="/about-us">
+          <div className="ham_links">
+            <h3>About us </h3>
+            <FaArrowRightLong size={20} />
+          </div>
+        </Link>
+        <Link to="/contact-us">
+          <div className="ham_links">
+            <h3>Contact us </h3>
+            <FaArrowRightLong size={20} />
+          </div>
+        </Link>
       </div>
     </div>
   );
