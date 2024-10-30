@@ -45,34 +45,36 @@ export default function Home() {
         </div>
       </Slider>
       <div className="global_layout">
-        <h1>Pick From Your Favourite Category </h1>
-        <section className="two_section">
-          <div className="category_flex">
-            {category.map((item, key) => {
-              return (
-                <Link
-                  to={`/category?selected_cat=${item.id}`}
-                  key={key}
-                  className="category_cards"
-                >
-                  <div className="category_cards__text">
-                    <h2>{item.name}</h2>
-                    <h3>{item.title}</h3>
-                  </div>
-                  <img
-                    src={item.coverImage}
-                    alt="category image"
-                    className="category_img"
-                  />
-                  <div className="explore_more">
-                    <span className="explore_more__btn">Explore More</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          <div className="parallax_section"></div>
-        </section>
+        <div className="outer_section">
+          <h1>Pick From Your Favourite Category </h1>
+          <section className="two_section">
+            <div className="category_flex">
+              {category.map((item, key) => {
+                return (
+                  <Link
+                    to={`/category?selected_cat=${item.id}`}
+                    key={key}
+                    className="category_cards"
+                  >
+                    <div className="category_cards__text">
+                      <h2>{item.name}</h2>
+                      <h3>{item.title}</h3>
+                    </div>
+                    <img
+                      src={item.coverImage}
+                      alt="category image"
+                      className="category_img"
+                    />
+                    <div className="explore_more">
+                      <span className="explore_more__btn">Explore More</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="parallax_section"></div>
+          </section>
+        </div>
       </div>
       <Footer />
     </div>

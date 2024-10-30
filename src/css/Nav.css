@@ -1,12 +1,6 @@
-.nav_bg {
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
-    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-  padding: 1em 0px;
-}
 .split_nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -16,6 +10,10 @@
   text-transform: uppercase;
   cursor: pointer;
   color: black;
+}
+.pages_flex {
+  display: flex;
+  gap: 8em;
 }
 
 .cart_img {
@@ -40,4 +38,16 @@
 .value {
   font-size: 1.2em;
   padding-bottom: 15px;
+}
+
+.hamburger {
+  display: none;
+}
+@media screen and (max-width: 899px) {
+  .hamburger {
+    display: block;
+  }
+  .pages {
+    display: none;
+  }
 }

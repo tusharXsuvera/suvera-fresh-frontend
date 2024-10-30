@@ -8,21 +8,25 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 export default function Footer() {
   return (
-    <div className="footer_bg">
+    <div className="global_layout">
       <div className="split_footer">
-        <Link to="/">
-          <img
-            src="/images/suveraFresh_logo.jpeg"
-            alt="brand logo"
-            className="brand_logo"
-          />
-        </Link>
-        <Link to="/about-us">
-          <h3>About Us</h3>
-        </Link>
-        <Link to="/contact-us">
-          <h3>Contact Us</h3>
-        </Link>
+        <div>
+          <Link to="/">
+            <img
+              src="/images/suveraFresh_logo.jpeg"
+              alt="brand logo"
+              className="brand_logo"
+            />
+          </Link>
+        </div>
+        <div className="pages_flex">
+          <Link to="/about-us">
+            <h3>About Us</h3>
+          </Link>
+          <Link to="/contact-us">
+            <h3>Contact Us</h3>
+          </Link>
+        </div>
         <div className="social_links">
           <Link
             to="https://www.facebook.com/profile.php?id=61563567441744"
