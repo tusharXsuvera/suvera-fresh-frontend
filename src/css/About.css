@@ -21,9 +21,12 @@
   flex-direction: column;
   gap: 3em;
 }
-
 .mobile_section {
+  background-color: #bc907a;
+}
+.mobile_flex {
   display: flex;
+  gap: 10px;
 }
 .main_heading {
   font-size: 2.8em;
@@ -42,9 +45,8 @@
   min-width: 250px;
 }
 .quotes {
-  background-color: #bc907a;
   width: 100%;
-  padding: 3.5em;
+  padding: 3.5em 0px;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -53,22 +55,21 @@
   width: 100%;
   max-width: 450px;
   min-width: 200px;
-  aspect-ratio: 0.9;
+  aspect-ratio: 1;
   border-radius: 10px;
 }
 .ceo_section {
   display: flex;
-  gap: 1em;
+  gap: 10em;
   padding: 4em 0px;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .ceo_details {
   padding: 2em 0em;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  gap: 1em;
   width: 100%;
-  max-width: 450px;
   min-width: 200px;
 }
 .about-title {
@@ -76,7 +77,7 @@
   padding-top: 1em;
 }
 .ordering_methods {
-  padding: 2em;
+  padding: 2em 0px;
 }
 .methods_img {
   width: 100%;
@@ -88,7 +89,7 @@
 .methods_img__flex {
   display: flex;
   padding: 5em 0px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 2em;
 }
 .signup_btn__about {
@@ -120,7 +121,7 @@
   .video_section {
     flex-wrap: wrap;
   }
-  .mobile_section {
+  .mobile_flex {
     flex-wrap: wrap;
   }
   .quotes {
@@ -128,12 +129,13 @@
   }
   .vision {
     max-width: 100%;
+    border-radius: 10px;
   }
   .ceo_section {
     flex-wrap: wrap;
   }
 }
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 725px) {
   .methods_img__flex {
     flex-wrap: wrap;
   }
