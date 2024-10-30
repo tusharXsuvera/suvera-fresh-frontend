@@ -10,7 +10,6 @@
   flex: 2;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
   gap: 10px;
 }
 .parallax_section {
@@ -30,8 +29,8 @@
   gap: 10px;
 }
 .category_img {
+  position: absolute;
   width: 100%;
-  min-width: 200px;
   height: 100%;
   border-radius: 20px;
   opacity: 0.5;
@@ -40,6 +39,8 @@
 .category_cards {
   width: 100%;
   max-width: 400px;
+  min-width: 250px;
+  aspect-ratio: 2;
   position: relative;
   background-color: black;
   border-radius: 20px;
@@ -78,11 +79,13 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 1078px) {
+@media screen and (max-width: 1385px) {
   .category_cards {
-    width: 100%;
+    max-width: 300px;
   }
-  .category_img {
+}
+@media screen and (max-width: 1085px) {
+  .category_cards {
     max-width: 100%;
   }
 }
@@ -93,6 +96,7 @@
   }
   .parallax_section {
     width: 100%;
+    aspect-ratio: 1.5;
   }
   .two_section {
     gap: 20px;
