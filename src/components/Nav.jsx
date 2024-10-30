@@ -47,9 +47,11 @@ export default function Nav() {
         <div>
           <Link to="/" className="split_nav">
             <BsCart3 size={20} />
-            <span className="value">
-              {quantity.value > 0 && quantity.value}
-            </span>
+            {quantity.value > 0 && (
+              <div className="handle_value">
+                <span className="value">{quantity.value}</span>
+              </div>
+            )}
           </Link>
         </div>
 
