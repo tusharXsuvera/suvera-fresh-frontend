@@ -74,21 +74,21 @@
   color: #fff;
   text-align: center;
   font-size: 14px;
-  padding: 6px 26px;
+  padding: 6px 25px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-@media screen and (max-width: 1385px) {
+@media screen and (min-width: 1085px) and (max-width: 1385px) {
   .category_cards {
     max-width: 300px;
   }
 }
-@media screen and (max-width: 1085px) {
+/* @media screen and (max-width: 1085px) {
   .category_cards {
     max-width: 100%;
   }
-}
+} */
 
 @media screen and (max-width: 568px) {
   .category_flex {
