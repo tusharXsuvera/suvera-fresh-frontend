@@ -8,7 +8,6 @@ import "../css/About.css";
 export default function Aboutus() {
   return (
     <>
-      <Nav />
       <div className="global_layout ">
         <div className="header_msg">
           <h1>About us</h1>
@@ -128,8 +127,6 @@ export default function Aboutus() {
           </div>
         </section>
       </div>
-
-      <Footer />
     </>
   );
 }

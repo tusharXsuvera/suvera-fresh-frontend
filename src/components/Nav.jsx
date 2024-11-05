@@ -47,18 +47,20 @@ export default function Nav() {
             <h3>Contact Us</h3>
           </Link>
         </div>
-        <div>
-          <Link to="/" className="split_nav">
-            <BsCart3 size={20} />
-            {quantity.value > 0 && (
-              <div className="handle_value">
-                <span className="value">{quantity.value}</span>
-              </div>
-            )}
-          </Link>
-        </div>
-        <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
-          <RxHamburgerMenu size={20} style={{ cursor: "pointer" }} />
+        <div style={{ display: "flex", gap: "1em" }}>
+          <div>
+            <Link to="/" className="split_nav">
+              <BsCart3 size={20} />
+              {quantity.value > 0 && (
+                <div className="handle_value">
+                  <span className="value">{quantity.value}</span>
+                </div>
+              )}
+            </Link>
+          </div>
+          <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
+            <RxHamburgerMenu size={20} style={{ cursor: "pointer" }} />
+          </div>
         </div>
       </div>
       <div className={showMenu ? "ham_menu " : "ham_menu hidden"}>

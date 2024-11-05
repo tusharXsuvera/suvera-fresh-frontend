@@ -14,61 +14,57 @@ export default function Category() {
     queryParams.get("selected_cat") || 0
   );
   return (
-    <div>
-      <Nav />
-      <div className="global_layout">
-        <h1>Order From Your Favourite Category!</h1>
-        <div className="category_bar">
-          {category.map((item, key) => {
-            return (
-              <div key={key}>
-                <Link
-                  to={`/category?selected_cat=${item.id}`}
-                  className={
-                    item.id == selected_cat
-                      ? "categor_bar_options active"
-                      : "categor_bar_options"
-                  }
-                  onClick={() => setSelectedCat(item.id)}
-                >
-                  {item.name}
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-        <h2 style={{ fontWeight: 400 }}>
-          Showing {category[selected_cat].products.length} Results
-        </h2>
-        {category[selected_cat].products.map((item, key) => {
+    <div className="global_layout">
+      <h1>Order From Your Favourite Category!</h1>
+      <div className="category_bar">
+        {category.map((item, key) => {
           return (
-            <div key={key} className="product_flex">
+            <div key={key}>
               <Link
-                to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
-                className="prod_img__outer"
+                to={`/category?selected_cat=${item.id}`}
+                className={
+                  item.id == selected_cat
+                    ? "categor_bar_options active"
+                    : "categor_bar_options"
+                }
+                onClick={() => setSelectedCat(item.id)}
               >
-                <img
-                  src={item.image}
-                  alt="product image"
-                  className="product_img"
-                />
+                {item.name}
               </Link>
-              <div className="prod_text">
-                <h2>{item.name}</h2>
-                <p>{item.description}</p>
-                <h2>₹ {item.price}</h2>
-                <Link
-                  to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
-                  className="prod_btn__flex"
-                >
-                  <span className="add_btn">ADD</span>
-                </Link>
-              </div>
             </div>
           );
         })}
       </div>
-      <Footer />
+      <h2 style={{ fontWeight: 400 }}>
+        Showing {category[selected_cat].products.length} Results
+      </h2>
+      {category[selected_cat].products.map((item, key) => {
+        return (
+          <div key={key} className="product_flex">
+            <Link
+              to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
+              className="prod_img__outer"
+            >
+              <img
+                src={item.image}
+                alt="product image"
+                className="product_img"
+              />
+            </Link>
+            <div className="prod_text">
+              <h2>{item.name}</h2>
+              <p>{item.description}</p>
+              <h2>₹ {item.price}</h2>
+              <Link
+                to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
+                className="prod_btn__flex"
+              >
+                <span className="add_btn">ADD</span>
+              </Link>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

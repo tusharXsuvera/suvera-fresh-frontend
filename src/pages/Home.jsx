@@ -21,7 +21,6 @@ export default function Home() {
 
   return (
     <div>
-      <Nav />
       <Slider {...settings}>
         <div>
           <img src="/images/fish.jpg" alt="fish image" className="banner_img" />
@@ -76,8 +75,6 @@ export default function Home() {
           </section>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }
