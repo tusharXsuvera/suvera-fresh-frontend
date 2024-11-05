@@ -62,7 +62,7 @@ export default function Nav() {
         </div>
         <div style={{ display: "flex", gap: "1em" }}>
           <div>
-            <Link to="/" className="split_nav">
+            <Link to="/cart" className="split_nav">
               <BsCart3 size={20} />
               {quantity.value > 0 && (
                 <div className="handle_value">

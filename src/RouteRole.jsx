@@ -15,7 +15,7 @@ export default function RouteRole() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="cart" element={<Cart />} />
           <Route path="category" element={<Category />} />
           <Route path="product-detail/:id" element={<ProductDetail />} />
           <Route path="about-us" element={<Aboutus />} />
