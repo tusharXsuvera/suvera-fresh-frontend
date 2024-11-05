@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import "../css/Category.css";
@@ -13,6 +11,9 @@ export default function Category() {
   const [selected_cat, setSelectedCat] = useState(
     queryParams.get("selected_cat") || 0
   );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="global_layout">
       <h1>Order From Your Favourite Category!</h1>
@@ -55,12 +56,6 @@ export default function Category() {
               <h2>{item.name}</h2>
               <p>{item.description}</p>
               <h2>₹ {item.price}</h2>
-              <Link
-                to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
-                className="prod_btn__flex"
-              >
-                <span className="add_btn">ADD</span>
-              </Link>
             </div>
           </div>
         );

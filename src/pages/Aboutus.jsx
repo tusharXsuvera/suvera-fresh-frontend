@@ -1,11 +1,13 @@
-import React from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import React, { useEffect } from "react";
+
 import { MdLogin } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "../css/About.css";
 
 export default function Aboutus() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="global_layout ">

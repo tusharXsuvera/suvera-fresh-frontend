@@ -1,6 +1,4 @@
-import React from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import React, { useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 import "../css/Contact.css";
 const AnyReactComponent = ({ text }) => (
@@ -28,6 +26,9 @@ export default function Contact() {
     },
     zoom: 13,
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="global_layout">
       <div>

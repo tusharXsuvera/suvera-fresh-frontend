@@ -14,11 +14,9 @@
   padding: 1em 8em;
 }
 .add_btn {
-  width: 200px;
-  height: 30px;
-  font-size: 16px;
+  width: 10em;
+  font-size: 1.5em;
   font-weight: 500;
-  border-radius: 4px;
   background-color: var(--maroon);
   color: #fff;
   display: flex;
@@ -26,6 +24,8 @@
   align-items: center;
   letter-spacing: 1px;
   cursor: pointer;
+  padding: 4px 0px;
+  margin-left: 10px;
 }
 .header_msg {
   text-align: center;

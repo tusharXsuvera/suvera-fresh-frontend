@@ -1,6 +1,4 @@
-import React from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../css/Global.css";
 import "../css/Home.css";
@@ -19,6 +17,9 @@ export default function Home() {
     slidesToScroll: 1,
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Slider {...settings}>

@@ -10,8 +10,21 @@ import { CiCircleRemove } from "react-icons/ci";
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
+  const [userLocation, setUserLocation] = useState(null);
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        setUserLocation({ latitude, longitude });
+      });
+    } else {
+      console.log("Not found");
+    }
+  }
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // getLocation();
   }, []);
   return (
     <div className="global_layout nav_bg">
