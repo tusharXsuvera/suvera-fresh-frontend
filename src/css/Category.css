@@ -30,11 +30,8 @@
   background-color: white;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* transition: all 0.4s; */
 }
-.product_flex:hover {
-  /* transform: scale(1.04); */
-}
+
 .prod_img__outer {
   width: 50%;
 }
@@ -68,13 +65,13 @@
 .quantity_flex {
   display: flex;
 }
-.quantity_flex b {
+.quantity_input {
   font-size: 1.5em;
-  padding: 4px 15px;
-  color: var(--maroon);
-  border-top: 0.5px solid var(--maroon);
-  border-bottom: 0.5px solid var(--maroon);
+  width: 50px;
+  border: none;
+  text-align: center;
 }
+
 .quantity_btn {
   font-size: 1.5em;
   font-weight: 500;

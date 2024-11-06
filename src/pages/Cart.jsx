@@ -14,11 +14,22 @@ export default function Cart() {
       <table>
         <thead>
           <tr>
-            <th>Month</th>
+            <th>
+              <span className="theading">Product</span>
+            </th>
             <th></th>
-            <th>Unit Price</th>
-            <th>Qty</th>
-            <th>Subtotal</th>
+            <th>
+              <span className="theading">Unit Price</span>
+            </th>
+            <th>
+              <span className="theading">Qty</span>
+            </th>
+            <th>
+              <span className="theading">Subtotal</span>
+            </th>
+            <th>
+              <span className="theading">Remove</span>
+            </th>
           </tr>
         </thead>
         <tbody>

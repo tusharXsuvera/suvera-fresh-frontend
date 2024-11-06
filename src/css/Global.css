@@ -42,6 +42,12 @@
   height: 3px;
   background-color: var(--maroon);
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media screen and (max-width: 568px) {
   .global_layout {
     padding: 2em;
