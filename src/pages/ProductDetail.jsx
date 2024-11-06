@@ -211,6 +211,7 @@ export default function ProductDetail() {
                 variant="outlined"
                 onClick={() => {
                   setSelectedWgt(true);
+                  setHandlePrice(1);
                 }}
                 clickable
                 style={{ fontSize: "1.4em" }}

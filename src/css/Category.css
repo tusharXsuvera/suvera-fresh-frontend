@@ -75,9 +75,11 @@
 .quantity_btn {
   font-size: 1.5em;
   font-weight: 500;
-  padding: 4px 10px;
+  width: 35px;
+  padding: 4px 0px;
   background-color: var(--maroon);
   color: #fff;
+  text-align: center;
   cursor: pointer;
 }
 
