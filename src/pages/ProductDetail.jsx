@@ -59,7 +59,7 @@ export default function ProductDetail() {
         <div className="prod_text">
           <h2>{prodDetails.current.name} (1000gm Pack )</h2>
           <p>{prodDetails.current.description}</p>
-          <h2>₹ {prodDetails.current.price.toFixed(2)}</h2>
+          <h2>₹ {prodDetails.current.price.toFixed(2)} / Pack</h2>
           <h3>
             (Total Price) :{" "}
             {selectedWgt
@@ -241,7 +241,7 @@ export default function ProductDetail() {
                 <div className="prod_text">
                   <h2>{item.name}</h2>
                   <p>{item.description}</p>
-                  <h2>₹ {item.price.toFixed(2)}</h2>
+                  <h2>₹ {item.price.toFixed(2)} / Pack</h2>
                 </div>
               </div>
             );
