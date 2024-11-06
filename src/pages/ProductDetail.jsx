@@ -59,15 +59,22 @@ export default function ProductDetail() {
         <div className="prod_text">
           <h2>{prodDetails.current.name} (1000gm Pack )</h2>
           <p>{prodDetails.current.description}</p>
-          <h2>₹ {prodDetails.current.price.toFixed(2)} / Pack</h2>
-          <h3>
+          <h2>
+            ₹{" "}
+            {selectedWgt
+              ? (prodDetails.current.price * handlePrice).toFixed(2)
+              : (prodDetails.current.price * handlePrice * quantities).toFixed(
+                  2
+                )}
+          </h2>
+          {/* <h3>
             (Total Price) :{" "}
             {selectedWgt
               ? (prodDetails.current.price * handlePrice).toFixed(2)
               : (prodDetails.current.price * handlePrice * quantities).toFixed(
                   2
                 )}
-          </h3>
+          </h3> */}
           <div className="quantity_flex">
             {!selectedWgt && (
               <div className="quantity_flex">
