@@ -25,6 +25,14 @@
   margin-bottom: 1em;
   border-radius: 4px;
 }
+.chips {
+  font-size: 1.4em !important ;
+}
+.highlight_chips {
+  background-color: var(--maroon) !important;
+  color: #fff !important;
+}
+
 @media screen and (max-width: 1044px) {
   .similar_prod__card {
     width: 100%;

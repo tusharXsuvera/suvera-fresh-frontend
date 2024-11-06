@@ -13,6 +13,13 @@ export default function ProductDetail() {
   const [selectedWgt, setSelectedWgt] = useState(false);
   const [handlePrice, setHandlePrice] = useState(1);
   const [quantities, setQuantities] = useState(1);
+  const [chipsColor, setChipsColor] = useState({
+    value1: false,
+    value2: false,
+    value3: false,
+    value4: false,
+    value5: false,
+  });
   const queryParams = new URLSearchParams(location.search);
   const selected_cat = queryParams.get("selected_cat");
   const prod_id = queryParams.get("prod_id");
@@ -43,8 +50,10 @@ export default function ProductDetail() {
           <h3>
             (Total Price) :{" "}
             {selectedWgt
-              ? prodDetails.current.price * handlePrice
-              : prodDetails.current.price * handlePrice * quantities}
+              ? (prodDetails.current.price * handlePrice).toFixed(2)
+              : (prodDetails.current.price * handlePrice * quantities).toFixed(
+                  2
+                )}
           </h3>
           {selectedWgt ? (
             <div className="quantity_flex">
@@ -94,15 +103,9 @@ export default function ProductDetail() {
               <TextField
                 placeholder="Enter weight in grams"
                 id="outlined-start-adornment"
-                sx={{ width: "50ch" }}
+                sx={{ width: "40ch" }}
                 type="number"
-                // slotProps={{
-                //   input: {
-                //     startAdornment: (
-                //       <InputAdornment position="start">gm</InputAdornment>
-                //     ),
-                //   },
-                // }}
+                onChange={(e) => setHandlePrice(e.target.value / 1000)}
               />
             </div>
           ) : (
@@ -111,37 +114,97 @@ export default function ProductDetail() {
                 label="250gm"
                 variant="outlined"
                 clickable
-                style={{ fontSize: "1.4em" }}
-                onClick={() => setHandlePrice(250 / 1000)}
+                className={
+                  chipsColor.value1 ? "chips highlight_chips" : "chips"
+                }
+                onClick={() => {
+                  setHandlePrice(250 / 1000),
+                    setChipsColor({
+                      ...chipsColor,
+                      value1: true,
+                      value2: false,
+                      value3: false,
+                      value4: false,
+                      value5: false,
+                    });
+                }}
               />
               <Chip
                 label="500gm"
                 variant="outlined"
                 clickable
-                style={{ fontSize: "1.4em" }}
-                onClick={() => setHandlePrice(500 / 1000)}
+                className={
+                  chipsColor.value2 ? "chips highlight_chips" : "chips"
+                }
+                onClick={() => {
+                  setHandlePrice(500 / 1000),
+                    setChipsColor({
+                      ...chipsColor,
+                      value2: true,
+                      value1: false,
+                      value3: false,
+                      value4: false,
+                      value5: false,
+                    });
+                }}
               />
               <Chip
                 label="1000gm"
                 variant="outlined"
                 clickable
-                style={{ fontSize: "1.4em" }}
-                onClick={() => setHandlePrice(1000 / 1000)}
+                className={
+                  chipsColor.value3 ? "chips highlight_chips" : "chips"
+                }
+                onClick={() => {
+                  setHandlePrice(1000 / 1000),
+                    setChipsColor({
+                      ...chipsColor,
+                      value3: true,
+                      value2: false,
+                      value1: false,
+                      value4: false,
+                      value5: false,
+                    });
+                }}
               />
               <Chip
                 label="1500gm"
                 variant="outlined"
                 clickable
-                style={{ fontSize: "1.4em" }}
-                onClick={() => setHandlePrice(1500 / 1000)}
+                className={
+                  chipsColor.value4 ? "chips highlight_chips" : "chips"
+                }
+                onClick={() => {
+                  setHandlePrice(1500 / 1000),
+                    setChipsColor({
+                      ...chipsColor,
+                      value4: true,
+                      value2: false,
+                      value3: false,
+                      value1: false,
+                      value5: false,
+                    });
+                }}
               />
 
               <Chip
                 label="2000gm"
                 variant="outlined"
                 clickable
-                style={{ fontSize: "1.4em" }}
-                onClick={() => setHandlePrice(2000 / 1000)}
+                className={
+                  chipsColor.value5 ? "chips highlight_chips" : "chips"
+                }
+                onClick={() => {
+                  setHandlePrice(2000 / 1000),
+                    setChipsColor({
+                      ...chipsColor,
+                      value5: true,
+                      value2: false,
+                      value3: false,
+                      value4: false,
+                      value1: false,
+                    });
+                }}
               />
               <Chip
                 label="More"
