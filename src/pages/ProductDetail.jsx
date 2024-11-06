@@ -8,8 +8,11 @@ import { category } from "../utils/categories";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import { addToCart } from "../reduxStore/slices/addToCart";
+import { useDispatch } from "react-redux";
 export default function ProductDetail() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const [selectedWgt, setSelectedWgt] = useState(false);
   const [handlePrice, setHandlePrice] = useState(1);
   const [quantities, setQuantities] = useState(1);
@@ -29,6 +32,16 @@ export default function ProductDetail() {
   const similarProducts = useRef(
     selected_cat && prod_id ? category[selected_cat].similar_prod : 0
   );
+  const updateCartInfo = () => {
+    const productDetail = {
+      prod_id: prod_id,
+      prodDetails: prodDetails.current,
+      quantity: quantities,
+      handleWgtPrice: handlePrice,
+    };
+    dispatch(addToCart(productDetail));
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -87,7 +100,7 @@ export default function ProductDetail() {
                 </div>
               </div>
             )}
-            <div className="prod_btn__flex">
+            <div className="prod_btn__flex" onClick={() => updateCartInfo()}>
               <span className="add_btn">Add to Cart</span>
             </div>
           </div>

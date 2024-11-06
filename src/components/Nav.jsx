@@ -26,6 +26,7 @@ export default function Nav() {
   useEffect(() => {
     // getLocation();
   }, []);
+
   return (
     <div className="global_layout nav_bg">
       <div className="split_nav">
@@ -64,9 +65,9 @@ export default function Nav() {
           <div>
             <Link to="/cart" className="split_nav">
               <BsCart3 size={20} />
-              {quantity.value > 0 && (
+              {quantity.value.length > 0 && (
                 <div className="handle_value">
-                  <span className="value">{quantity.value}</span>
+                  <span className="value">{quantity.value.length}</span>
                 </div>
               )}
             </Link>
