@@ -46,7 +46,7 @@ export default function ProductDetail() {
         <div className="prod_text">
           <h2>{prodDetails.current.name} (1000gm Pack )</h2>
           <p>{prodDetails.current.description}</p>
-          <h2>₹ {prodDetails.current.price}</h2>
+          <h2>₹ {prodDetails.current.price.toFixed(2)}</h2>
           <h3>
             (Total Price) :{" "}
             {selectedWgt
@@ -55,48 +55,42 @@ export default function ProductDetail() {
                   2
                 )}
           </h3>
-          {selectedWgt ? (
-            <div className="quantity_flex">
-              <div className="prod_btn__flex">
-                <span className="add_btn" style={{ marginLeft: 0 }}>
-                  Add to Cart
-                </span>
+          <div className="quantity_flex">
+            {!selectedWgt && (
+              <div className="quantity_flex">
+                <div
+                  className="quantity_btn"
+                  onClick={() =>
+                    setQuantities((prevQuantity) =>
+                      prevQuantity < 10 ? prevQuantity + 1 : 10
+                    )
+                  }
+                >
+                  +
+                </div>
+                <input
+                  type="number"
+                  name="quantiy"
+                  value={quantities}
+                  className="quantity_input"
+                  disabled
+                />
+                <div
+                  className="quantity_btn"
+                  onClick={() =>
+                    setQuantities((prevQuantity) =>
+                      prevQuantity > 1 ? prevQuantity - 1 : 1
+                    )
+                  }
+                >
+                  -
+                </div>
               </div>
+            )}
+            <div className="prod_btn__flex">
+              <span className="add_btn">Add to Cart</span>
             </div>
-          ) : (
-            <div className="quantity_flex">
-              <div
-                className="quantity_btn"
-                onClick={() =>
-                  setQuantities((prevQuantity) =>
-                    prevQuantity < 10 ? prevQuantity + 1 : 10
-                  )
-                }
-              >
-                +
-              </div>
-              <input
-                type="number"
-                name="quantiy"
-                value={quantities}
-                className="quantity_input"
-                disabled
-              />
-              <div
-                className="quantity_btn"
-                onClick={() =>
-                  setQuantities((prevQuantity) =>
-                    prevQuantity > 1 ? prevQuantity - 1 : 1
-                  )
-                }
-              >
-                -
-              </div>
-              <div className="prod_btn__flex">
-                <span className="add_btn">Add to Cart</span>
-              </div>
-            </div>
-          )}
+          </div>
 
           {selectedWgt ? (
             <div>
@@ -214,7 +208,7 @@ export default function ProductDetail() {
                   setHandlePrice(1);
                 }}
                 clickable
-                style={{ fontSize: "1.4em" }}
+                className="chips"
               />
             </Stack>
           )}
@@ -234,7 +228,7 @@ export default function ProductDetail() {
                 <div className="prod_text">
                   <h2>{item.name}</h2>
                   <p>{item.description}</p>
-                  <h2>₹ {item.price}</h2>
+                  <h2>₹ {item.price.toFixed(2)}</h2>
                 </div>
               </div>
             );
