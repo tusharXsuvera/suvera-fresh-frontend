@@ -3,7 +3,6 @@ import "../css/Cart.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToCart } from "../reduxStore/slices/addToCart";
-import { TextField } from "@mui/material";
 
 export default function Cart() {
   const dispatch = useDispatch();

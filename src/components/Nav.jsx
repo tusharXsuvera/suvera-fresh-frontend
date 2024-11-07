@@ -7,25 +7,36 @@ import { BsCart3 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
+import { handleGetAPI } from "../apiCall/api";
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
-  const [userLocation, setUserLocation] = useState(null);
+  const [currentLocation, setCurretLocation] = useState({
+    userArea: "Delhi",
+    userCity: "Westcott Building",
+  });
 
   function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      26.482267, 80.343887;
+      navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-        console.log(latitude, "lat", "long", longitude);
-        setUserLocation({ latitude, longitude });
+        console.log("lat", latitude, "long", longitude);
+        let url = `https://suverafresh-backend.onrender.com/api/shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
+        const userDetails = await handleGetAPI(url);
+        if (userDetails.area) {
+          setCurretLocation({
+            ...currentLocation,
+            userArea: area.name,
+            userCity: area.city,
+          });
+        }
       });
-    } else {
-      console.log("Not found");
     }
   }
 
   useEffect(() => {
-    // getLocation();
+    getLocation();
   }, []);
 
   return (
@@ -44,8 +55,8 @@ export default function Nav() {
             <FaLocationDot size={15} />
           </div>
           <div>
-            <h1>Kanpur</h1>
-            <h2>Westcott Building</h2>
+            <h1>{currentLocation.userCity}</h1>
+            <h2>{currentLocation.userArea}</h2>
           </div>
         </div>
         <div className="pages_flex">
