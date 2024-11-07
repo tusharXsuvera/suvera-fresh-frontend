@@ -48,3 +48,12 @@ th {
 .checkout_btn {
   padding: 3em 0em;
 }
+.continue_shop__text {
+  font-size: 1.5em;
+  font-family: "sans-serif";
+  background-color: var(--maroon);
+  color: #fff;
+  padding: 0.5em 1.2em;
+  border-radius: 5px;
+  text-transform: capitalize;
+}

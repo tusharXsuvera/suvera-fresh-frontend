@@ -3,6 +3,7 @@ import "../css/Cart.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToCart } from "../reduxStore/slices/addToCart";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -10,7 +11,6 @@ export default function Cart() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  console.log(cartProducts, "products on cart");
   return (
     <div className="global_layout">
       <div className="header_msg">
@@ -18,7 +18,14 @@ export default function Cart() {
         <hr />
       </div>
       {cartProducts.length === 0 ? (
-        <h1 className="add_prod__quote">Please Add Some Products !!!</h1>
+        <div className="add_prod__quote">
+          <h1 style={{ marginBottom: "1.5em" }}>
+            Your shopping cart is empty !!!
+          </h1>
+          <Link to="/category">
+            <b className="continue_shop__text">Click to add products </b>
+          </Link>
+        </div>
       ) : (
         <>
           <div style={{ overflowX: "auto" }}>
@@ -49,13 +56,7 @@ export default function Cart() {
               <tbody>
                 {cartProducts.length > 0 &&
                   cartProducts.map((item, key) => {
-                    const {
-                      prodDetails,
-                      quantity,
-                      handleWgtPrice,
-                      selected_cat,
-                      prod_id,
-                    } = item;
+                    const { prodDetails, quantity, handleWgtPrice } = item;
                     return (
                       <tr key={key}>
                         <td>
@@ -125,11 +126,7 @@ export default function Cart() {
                             size={25}
                             style={{ cursor: "pointer" }}
                             onClick={() =>
-                              dispatch(
-                                removeToCart({
-                                  prod_id,
-                                })
-                              )
+                              dispatch(removeToCart(prodDetails.id))
                             }
                           />
                         </td>

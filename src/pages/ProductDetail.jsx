@@ -25,7 +25,7 @@ export default function ProductDetail() {
   });
   const queryParams = new URLSearchParams(location.search);
   const selected_cat = queryParams.get("selected_cat");
-  const prod_id = queryParams.get("prod_id");
+  const prod_id = queryParams.get("index");
   const prodDetails = useRef(
     selected_cat && prod_id ? category[selected_cat].products[prod_id] : 0
   );
@@ -34,7 +34,6 @@ export default function ProductDetail() {
   );
   const updateCartInfo = () => {
     const productDetail = {
-      prod_id: prod_id,
       prodDetails: prodDetails.current,
       quantity: quantities,
       handleWgtPrice: handlePrice,

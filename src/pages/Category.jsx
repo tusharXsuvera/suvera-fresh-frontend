@@ -43,7 +43,7 @@ export default function Category() {
         return (
           <div key={key} className="product_flex">
             <Link
-              to={`/product-detail/${item.name}?selected_cat=${selected_cat}&prod_id=${item.id}`}
+              to={`/product-detail/${item.name}?selected_cat=${selected_cat}&index=${key}`}
               className="prod_img__outer"
             >
               <img
