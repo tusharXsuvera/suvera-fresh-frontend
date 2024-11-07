@@ -19,10 +19,12 @@ export default function Nav() {
   function getLocation() {
     if (navigator.geolocation) {
       // 26.482267, 80.343887;
+      //26.479879, 80.342646
+      // 26.483368, 80.342177
+
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-        console.log("lat", latitude, "long", longitude);
-        let url = `https://suverafresh-backend.onrender.com/api/shops/area-shop?latitude=${26.482267}&longitude=${80.343887}`;
+        let url = `https://suverafresh-backend.onrender.com/api/shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
         const userDetails = await handleGetAPI(url);
         if (userDetails.area) {
           setCurretLocation({
