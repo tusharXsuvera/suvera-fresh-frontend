@@ -12,8 +12,8 @@ export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
   const [currentLocation, setCurretLocation] = useState({
-    userArea: "Delhi",
-    userCity: "Westcott Building",
+    userArea: "Laxmi Nagar",
+    userCity: "New Delhi",
   });
 
   function getLocation() {
