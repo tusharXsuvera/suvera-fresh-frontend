@@ -1,3 +1,9 @@
+h6 {
+  color: #727171;
+  font-family: "sans-serif";
+  font-size: 1.4em;
+  font-size: 400;
+}
 .brand_logo {
   width: 100%;
   min-width: 25px;
@@ -52,8 +58,18 @@ input::-webkit-inner-spin-button {
 .justify_end {
   justify-content: flex-end;
 }
+.justify_btw {
+  justify-content: space-between;
+}
 .cursor {
   cursor: pointer;
+}
+.global_input {
+  width: 200px;
+  padding: 8px 10px;
+}
+.text_right {
+  text-align: right;
 }
 @media screen and (max-width: 568px) {
   .global_layout {

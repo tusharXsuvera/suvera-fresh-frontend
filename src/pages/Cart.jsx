@@ -3,6 +3,7 @@ import "../css/Cart.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToCart } from "../reduxStore/slices/addToCart";
+import { TextField } from "@mui/material";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -20,61 +21,64 @@ export default function Cart() {
       {cartProducts.length === 0 ? (
         <h1 className="add_prod__quote">Please Add Some Products !!!</h1>
       ) : (
-        <div style={{ overflowX: "auto" }}>
-          <table>
-            <thead>
-              <tr>
-                <th>
-                  <span className="theading">Product</span>
-                </th>
-                <th></th>
-                <th>
-                  <span className="theading">Unit Price</span>
-                </th>
-                <th>
-                  <span className="theading">Qty</span>
-                </th>
-                <th>
-                  <span className="theading">Weight</span>
-                </th>
-                <th>
-                  <span className="theading">Subtotal</span>
-                </th>
-                <th>
-                  <span className="theading">Remove</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartProducts.length > 0 &&
-                cartProducts.map((item, key) => {
-                  const {
-                    prodDetails,
-                    quantity,
-                    handleWgtPrice,
-                    selected_cat,
-                    prod_id,
-                  } = item;
-                  return (
-                    <tr key={key}>
-                      <td>
-                        <img
-                          src={prodDetails.image}
-                          alt="product"
-                          className="cart_prod__img"
-                        />
-                      </td>
-                      <td>
-                        <span className="handle_tbody">{prodDetails.name}</span>
-                      </td>
-                      <td>
-                        <span className="handle_tbody">
-                          {prodDetails.price.toFixed(2)}
-                        </span>
-                      </td>
-                      <td>
-                        <div className="quantity_flex">
-                          <div
+        <>
+          <div style={{ overflowX: "auto" }}>
+            <table className="cart_table">
+              <thead>
+                <tr>
+                  <th>
+                    <span className="theading">Product</span>
+                  </th>
+                  <th></th>
+                  <th>
+                    <span className="theading">Unit Price</span>
+                  </th>
+                  <th>
+                    <span className="theading">Qty</span>
+                  </th>
+                  <th>
+                    <span className="theading">Weight</span>
+                  </th>
+                  <th>
+                    <span className="theading">Subtotal</span>
+                  </th>
+                  <th>
+                    <span className="theading">Remove</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {cartProducts.length > 0 &&
+                  cartProducts.map((item, key) => {
+                    const {
+                      prodDetails,
+                      quantity,
+                      handleWgtPrice,
+                      selected_cat,
+                      prod_id,
+                    } = item;
+                    return (
+                      <tr key={key}>
+                        <td>
+                          <img
+                            src={prodDetails.image}
+                            alt="product"
+                            className="cart_prod__img"
+                          />
+                        </td>
+                        <td>
+                          <span className="handle_tbody">
+                            {prodDetails.name}
+                          </span>
+                        </td>
+                        <td>
+                          <span className="handle_tbody">
+                            {prodDetails.price.toFixed(2)}
+                          </span>
+                        </td>
+                        <td>
+                          <div className="quantity_flex">
+                            {/* <div
                             className="add_btn quantity_btn"
                             // onClick={() =>
                             //   setQuantities((prevQuantity) =>
@@ -83,15 +87,15 @@ export default function Cart() {
                             // }
                           >
                             +
-                          </div>
-                          <input
-                            type="number"
-                            name="quantiy"
-                            value={quantity}
-                            className="quantity_input"
-                            disabled
-                          />
-                          <div
+                          </div> */}
+                            <input
+                              type="number"
+                              name="quantiy"
+                              value={quantity}
+                              className="quantity_input"
+                              disabled
+                            />
+                            {/* <div
                             className="add_btn quantity_btn"
                             // onClick={() =>
                             //   setQuantities((prevQuantity) =>
@@ -100,53 +104,92 @@ export default function Cart() {
                             // }
                           >
                             -
+                          </div> */}
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <span className="handle_tbody">
-                          {handleWgtPrice * 1000}gm
-                        </span>
-                      </td>
-                      <td>
-                        <span className="handle_tbody">
-                          {(
-                            prodDetails.price *
-                            handleWgtPrice *
-                            quantity
-                          ).toFixed(2)}
-                        </span>
-                      </td>
-                      <td>
-                        <RiDeleteBin6Line
-                          size={25}
-                          style={{ cursor: "pointer" }}
-                          onClick={() =>
-                            dispatch(
-                              removeToCart({
-                                prod_id,
-                              })
-                            )
-                          }
-                        />
-                      </td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan={7}>
-                  <div className="flex_wrap justify_end">
-                    <button className="add_btn">Update Cart</button>
-                    <button className="add_btn">Clear Cart</button>
-                    <button className="add_btn">Continue Shopping</button>
-                  </div>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
+                        </td>
+                        <td>
+                          <span className="handle_tbody">
+                            {handleWgtPrice * 1000}gm
+                          </span>
+                        </td>
+                        <td>
+                          <span className="handle_tbody">
+                            {(
+                              prodDetails.price *
+                              handleWgtPrice *
+                              quantity
+                            ).toFixed(2)}
+                          </span>
+                        </td>
+                        <td>
+                          <RiDeleteBin6Line
+                            size={25}
+                            style={{ cursor: "pointer" }}
+                            onClick={() =>
+                              dispatch(
+                                removeToCart({
+                                  prod_id,
+                                })
+                              )
+                            }
+                          />
+                        </td>
+                      </tr>
+                    );
+                  })}
+              </tbody>
+            </table>
+            <div className="flex_wrap justify_end ">
+              <hr className="hr_line" />
+            </div>
+          </div>
+          <div className="flex_wrap justify_btw">
+            <div>
+              <div className="flex_wrap">
+                <input
+                  type="text"
+                  placeholder="REDEEM COUPON CODE"
+                  className="global_input"
+                />
+                <button className="add_btn">Apply</button>
+              </div>
+              <div style={{ paddingTop: "1em" }}>
+                <h6>* Only one offer/coupon can be applied</h6>
+              </div>
+            </div>
+            <table className="total_table">
+              <tbody>
+                <tr>
+                  <td>
+                    <span className="handle_tbody">Item subtotal</span>
+                  </td>
+                  <td className="text_right">
+                    <span className="handle_tbody">₹279.00</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span className="handle_tbody">Grand total</span>
+                  </td>
+                  <td className="text_right">
+                    <span className="handle_tbody">₹279.00</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span className="handle_tbody">Amount to pay</span>
+                  </td>
+                  <td className="text_right">
+                    <span className="handle_tbody">₹279.00</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="flex_wrap justify_end checkout_btn">
+            <button className="add_btn">Proceed to checkout</button>
+          </div>
+        </>
       )}
     </div>
   );

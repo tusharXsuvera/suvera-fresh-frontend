@@ -1,12 +1,11 @@
-table,
-td,
+.cart_table td,
 th {
   border: 1px solid #bbb9b9;
   padding: 2em;
   text-align: left;
 }
 
-table {
+.cart_table {
   border-collapse: collapse;
   width: 100%;
   margin: 2em 0em;
@@ -32,4 +31,20 @@ table {
   text-align: center;
   width: 90vw;
   height: 68vh;
+}
+.hr_line {
+  width: 100%;
+  max-width: 410px;
+  min-width: 200px;
+  margin: 20px 0em;
+}
+.total_table {
+  border-collapse: collapse;
+  width: 28%;
+}
+.total_table td {
+  padding-bottom: 1.5em;
+}
+.checkout_btn {
+  padding: 3em 0em;
 }
