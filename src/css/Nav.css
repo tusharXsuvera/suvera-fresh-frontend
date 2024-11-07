@@ -33,12 +33,14 @@
   font-weight: 600;
   line-height: 19.5px;
   color: rgb(18, 18, 18);
+  text-transform: capitalize;
 }
 .location_flex h2 {
   font-size: 1.3em;
   font-weight: 500;
   line-height: 15.85px;
   color: rgb(126, 125, 125);
+  text-transform: capitalize;
 }
 .value {
   font-size: 1.2em;

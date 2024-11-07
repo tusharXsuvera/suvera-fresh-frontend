@@ -18,17 +18,17 @@ export default function Nav() {
 
   function getLocation() {
     if (navigator.geolocation) {
-      26.482267, 80.343887;
+      // 26.482267, 80.343887;
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         console.log("lat", latitude, "long", longitude);
-        let url = `https://suverafresh-backend.onrender.com/api/shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
+        let url = `https://suverafresh-backend.onrender.com/api/shops/area-shop?latitude=${26.482267}&longitude=${80.343887}`;
         const userDetails = await handleGetAPI(url);
         if (userDetails.area) {
           setCurretLocation({
             ...currentLocation,
-            userArea: area.name,
-            userCity: area.city,
+            userArea: userDetails.area.name,
+            userCity: userDetails.area.city,
           });
         }
       });
