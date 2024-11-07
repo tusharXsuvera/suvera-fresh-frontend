@@ -79,7 +79,7 @@ export default function ProductDetail() {
             {!selectedWgt && (
               <div className="quantity_flex">
                 <div
-                  className="quantity_btn"
+                  className="add_btn quantity_btn"
                   onClick={() =>
                     setQuantities((prevQuantity) =>
                       prevQuantity < 10 ? prevQuantity + 1 : 10
@@ -96,7 +96,7 @@ export default function ProductDetail() {
                   disabled
                 />
                 <div
-                  className="quantity_btn"
+                  className="add_btn quantity_btn"
                   onClick={() =>
                     setQuantities((prevQuantity) =>
                       prevQuantity > 1 ? prevQuantity - 1 : 1
@@ -107,9 +107,13 @@ export default function ProductDetail() {
                 </div>
               </div>
             )}
-            <div className="prod_btn__flex" onClick={() => updateCartInfo()}>
-              <span className="add_btn">Add to Cart</span>
-            </div>
+            <button
+              className="add_btn"
+              style={{ marginLeft: "10px" }}
+              onClick={() => updateCartInfo()}
+            >
+              Add to Cart
+            </button>
           </div>
 
           {selectedWgt ? (
@@ -248,7 +252,7 @@ export default function ProductDetail() {
                 <div className="prod_text">
                   <h2>{item.name}</h2>
                   <p>{item.description}</p>
-                  <h2>₹ {item.price.toFixed(2)} / Pack</h2>
+                  <h2>₹ {item.price.toFixed(2)}</h2>
                 </div>
               </div>
             );

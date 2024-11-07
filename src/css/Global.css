@@ -14,18 +14,15 @@
   padding: 1em 8em;
 }
 .add_btn {
-  width: 10em;
+  display: inline-block;
   font-size: 1.5em;
   font-weight: 500;
   background-color: var(--maroon);
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   letter-spacing: 1px;
   cursor: pointer;
-  padding: 4px 0px;
-  margin-left: 10px;
+  padding: 8px 10px;
+  border: none;
 }
 .header_msg {
   text-align: center;
@@ -47,7 +44,17 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+.flex_wrap {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+.justify_end {
+  justify-content: flex-end;
+}
+.cursor {
+  cursor: pointer;
+}
 @media screen and (max-width: 568px) {
   .global_layout {
     padding: 2em;

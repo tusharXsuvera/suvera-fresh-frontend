@@ -55,7 +55,7 @@ export default function Category() {
             <div className="prod_text">
               <h2>{item.name} (1000gm Pack )</h2>
               <p>{item.description}</p>
-              <h2>₹ {item.price.toFixed(2)} / Pack</h2>
+              <h2>₹ {item.price.toFixed(2)} </h2>
             </div>
           </div>
         );

@@ -16,6 +16,7 @@ export default function Nav() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
+        console.log(latitude, "lat", "long", longitude);
         setUserLocation({ latitude, longitude });
       });
     } else {
@@ -61,7 +62,7 @@ export default function Nav() {
             <h3>Contact Us</h3>
           </Link>
         </div>
-        <div style={{ display: "flex", gap: "1em" }}>
+        <div className="flex_wrap">
           <div>
             <Link to="/cart" className="split_nav">
               <BsCart3 size={20} />
@@ -73,7 +74,7 @@ export default function Nav() {
             </Link>
           </div>
           <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
-            <RxHamburgerMenu size={20} style={{ cursor: "pointer" }} />
+            <RxHamburgerMenu size={20} className="cursor" />
           </div>
         </div>
       </div>

@@ -19,6 +19,7 @@
 }
 .active {
   color: var(--maroon);
+  border-bottom: 1px solid #fff;
 }
 .product_flex {
   margin: 2em 0px;
@@ -67,18 +68,13 @@
 }
 .quantity_input {
   font-size: 1.5em;
-  width: 50px;
-  border: none;
+  width: 35px;
+  padding: 8px 10px;
   text-align: center;
 }
 
 .quantity_btn {
-  font-size: 1.5em;
-  font-weight: 500;
   width: 35px;
-  padding: 4px 0px;
-  background-color: var(--maroon);
-  color: #fff;
   text-align: center;
   cursor: pointer;
 }
