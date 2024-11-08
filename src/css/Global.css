@@ -71,6 +71,12 @@ input::-webkit-inner-spin-button {
 .text_right {
   text-align: right;
 }
+.text_center {
+  text-align: center;
+}
+.justify_center {
+  justify-content: center;
+}
 @media screen and (max-width: 568px) {
   .global_layout {
     padding: 2em;

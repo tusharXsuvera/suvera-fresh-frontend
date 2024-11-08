@@ -196,7 +196,9 @@ export default function Cart() {
             </table>
           </div>
           <div className="flex_wrap justify_end checkout_btn">
-            <button className="add_btn">Proceed to checkout</button>
+            <Link to="/checkout">
+              <button className="add_btn">Proceed to checkout</button>
+            </Link>
           </div>
         </>
       )}
