@@ -2,12 +2,36 @@ import React, { useEffect } from "react";
 import "../css/Cart.css";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { removeToCart } from "../reduxStore/slices/addToCart";
+import {
+  removeToCart,
+  updateRemoveQuantity,
+  updateAddQuantity,
+} from "../reduxStore/slices/addToCart";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cartSlice.value);
+
+  function updateAddQty(item) {
+    console.log(item, "add ka item");
+    const productDetail = {
+      prodDetails: item.prodDetails,
+      quantity: item.quantity,
+      handleWgtPrice: item.handleWgtPrice,
+    };
+    dispatch(updateAddQuantity(productDetail));
+  }
+  function updateRemoveQty(item) {
+    console.log(item, "remove ka item");
+
+    const productDetail = {
+      prodDetails: item.prodDetails,
+      quantity: item.quantity,
+      handleWgtPrice: item.handleWgtPrice,
+    };
+    dispatch(updateRemoveQuantity(productDetail));
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -23,7 +47,7 @@ export default function Cart() {
             Your shopping cart is empty !!!
           </h1>
           <Link to="/category">
-            <b className="continue_shop__text">Click to add products </b>
+            <b className="continue_shop__text">Click to shop now</b>
           </Link>
         </div>
       ) : (
@@ -78,16 +102,12 @@ export default function Cart() {
                         </td>
                         <td>
                           <div className="quantity_flex">
-                            {/* <div
-                            className="add_btn quantity_btn"
-                            // onClick={() =>
-                            //   setQuantities((prevQuantity) =>
-                            //     prevQuantity < 10 ? prevQuantity + 1 : 10
-                            //   )
-                            // }
-                          >
-                            +
-                          </div> */}
+                            <div
+                              className="add_btn quantity_btn"
+                              onClick={() => updateAddQty(item)}
+                            >
+                              +
+                            </div>
                             <input
                               type="number"
                               name="quantiy"
@@ -95,16 +115,12 @@ export default function Cart() {
                               className="quantity_input"
                               disabled
                             />
-                            {/* <div
-                            className="add_btn quantity_btn"
-                            // onClick={() =>
-                            //   setQuantities((prevQuantity) =>
-                            //     prevQuantity > 1 ? prevQuantity - 1 : 1
-                            //   )
-                            // }
-                          >
-                            -
-                          </div> */}
+                            <div
+                              className="add_btn quantity_btn"
+                              onClick={() => updateRemoveQty(item)}
+                            >
+                              -
+                            </div>
                           </div>
                         </td>
                         <td>
