@@ -14,7 +14,6 @@ export default function Cart() {
   const cartProducts = useSelector((state) => state.cartSlice.value);
 
   function updateAddQty(item) {
-    console.log(item, "add ka item");
     const productDetail = {
       prodDetails: item.prodDetails,
       quantity: item.quantity,
@@ -23,8 +22,6 @@ export default function Cart() {
     dispatch(updateAddQuantity(productDetail));
   }
   function updateRemoveQty(item) {
-    console.log(item, "remove ka item");
-
     const productDetail = {
       prodDetails: item.prodDetails,
       quantity: item.quantity,

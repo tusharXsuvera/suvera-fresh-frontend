@@ -32,6 +32,11 @@
   background-color: var(--maroon) !important;
   color: #fff !important;
 }
+.chips_gaps {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
 
 @media screen and (max-width: 1044px) {
   .similar_prod__card {
