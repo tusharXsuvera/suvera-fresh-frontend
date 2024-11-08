@@ -20,7 +20,7 @@ export default function Nav() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-        let url = `https://suverafresh-backend.onrender.com/api/shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
+        let url = `https://suvera-backend.vercel.app/api/shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
         const userDetails = await handleGetAPI(url);
         if (userDetails && userDetails.area) {
           setCurretLocation({
@@ -48,7 +48,6 @@ export default function Nav() {
               className="brand_logo"
             />
           </Link>
-
           <div style={{ padding: "5px" }}>
             <FaLocationDot size={15} />
           </div>
