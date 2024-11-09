@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import "../css/Checkout.css";
-import { handleGetAPI, handlePostAPI } from "../apiCall/api";
-import { useSelector } from "react-redux";
-
+import { handlePostAPI } from "../apiCall/api";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../reduxStore/slices/addToCart";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Checkout() {
   const [username, setUserName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const cartProducts = useSelector((state) => state.cartSlice.value);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const placeOrder = async (event) => {
     event.preventDefault();
@@ -24,7 +29,14 @@ export default function Checkout() {
         longitude: userObj.longitude,
       };
       let endpoint = "place-order";
-      // const result = await handlePostAPI(endpoint, formdata);
+      const result = await handlePostAPI(endpoint, formdata);
+      if (result.success) {
+        toast.success(result.message, { autoClose: 3000 });
+        dispatch(clearCart());
+        navigate("/");
+      } else {
+        toast.error(result.message, { autoClose: 2000 });
+      }
     }
   };
   return (
