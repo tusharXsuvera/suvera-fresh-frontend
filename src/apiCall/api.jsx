@@ -1,5 +1,7 @@
 import axios from "axios";
-export const handleGetAPI = async (url) => {
+const host = `https://suvera-backend.vercel.app/api/`;
+export const handleGetAPI = async (endpoint) => {
+  const url = `${host}${endpoint}`;
   try {
     const result = await axios.get(url);
     return result.data;
@@ -7,7 +9,8 @@ export const handleGetAPI = async (url) => {
     console.log(err.message);
   }
 };
-export const handlePostAPI = async (url, formdata) => {
+export const handlePostAPI = async (endpoint, formdata) => {
+  const url = `${host}${endpoint}`;
   try {
     const result = await axios.post(url, formdata);
     return result.data;

@@ -20,14 +20,20 @@ export default function Nav() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-        let url = `https://suvera-backend.vercel.app/api/shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
-        const userDetails = await handleGetAPI(url);
+        let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
+        const userDetails = await handleGetAPI(endpoint);
         if (userDetails && userDetails.area) {
           setCurretLocation({
             ...currentLocation,
             userArea: userDetails.area.name,
             userCity: userDetails.area.city,
           });
+          let userLocation = {
+            shopId: userDetails.area.shop.id,
+            latitude: latitude,
+            longitude: longitude,
+          };
+          localStorage.setItem("userLocation", JSON.stringify(userLocation));
         }
       });
     }

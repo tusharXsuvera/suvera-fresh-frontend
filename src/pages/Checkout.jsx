@@ -1,22 +1,31 @@
 import React, { useState } from "react";
 import "../css/Checkout.css";
-import { handlePostAPI } from "../apiCall/api";
+import { handleGetAPI, handlePostAPI } from "../apiCall/api";
+import { useSelector } from "react-redux";
 
 export default function Checkout() {
   const [username, setUserName] = useState("");
   const [deliveryAddress, setDeliveryAddress] = useState("");
-  const placeOrder = (event) => {
+  const cartProducts = useSelector((state) => state.cartSlice.value);
+
+  const placeOrder = async (event) => {
     event.preventDefault();
-    let formdata = {
-      name: username,
-      delivery_address: deliveryAddress,
-      products: "",
-      shopId: "",
-      latitude: "",
-      longitude: "",
-    };
-    // let endpoint =""
-    // const result = handlePostAPI(endpoint, formdata);
+    const storedUser = localStorage.getItem("userLocation");
+
+    // Convert the string back to an object
+    if (storedUser) {
+      const userObj = JSON.parse(storedUser);
+      let formdata = {
+        name: username,
+        delivery_address: deliveryAddress,
+        products: cartProducts,
+        shopId: userObj.shopId,
+        latitude: userObj.latitude,
+        longitude: userObj.longitude,
+      };
+      let endpoint = "place-order";
+      // const result = await handlePostAPI(endpoint, formdata);
+    }
   };
   return (
     <div className="global_layout width_manage">
