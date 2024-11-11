@@ -8,20 +8,32 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
 import { handleGetAPI } from "../apiCall/api";
+import axios from "axios";
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
+  const [fullAddress, setFullAddress] = useState("");
   const [currentLocation, setCurretLocation] = useState({
     userArea: "Laxmi Nagar",
     userCity: "New Delhi",
   });
-
+  // 26.4667136 °, Longitude: 80.3438592 °
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
         const userDetails = await handleGetAPI(endpoint);
+        let apiKey = `74a57e2076e542f0b757ae44c197f312`;
+        var query = `${latitude},${longitude}`;
+        const userExactAddress = await axios
+          .get(
+            `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&pretty=1`
+          )
+          .then((res) => {
+            setFullAddress(res.data.results[0].formatted);
+            // console.log(res.data.results, "res location");
+          });
         if (userDetails && userDetails.area) {
           setCurretLocation({
             ...currentLocation,
@@ -59,7 +71,8 @@ export default function Nav() {
           </div>
           <div>
             <h1>{currentLocation.userCity}</h1>
-            <h2>{currentLocation.userArea}</h2>
+            {/* <h2>{currentLocation.userArea}</h2> */}
+            <h2>{fullAddress}</h2>
           </div>
         </div>
         <div className="pages_flex">
