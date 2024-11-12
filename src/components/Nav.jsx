@@ -12,43 +12,57 @@ import axios from "axios";
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
+  const [olaAddress, setOlaAddress] = useState("");
   const [address, setAddress] = useState("");
   const [currentLocation, setCurretLocation] = useState({
     userArea: "Laxmi Nagar",
     userCity: "New Delhi",
   });
-  // 26.4667136 °, Longitude: 80.3438592 °
+
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
-        const userDetails = await handleGetAPI(endpoint);
+        // const userDetails = await handleGetAPI(endpoint);
         let apiKey = `74a57e2076e542f0b757ae44c197f312`;
         var query = `${latitude},${longitude}`;
-        const userExactAddress = await axios
+        // open cage implementation
+        // const userExactAddress = await axios
+        //   .get(
+        //     `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&pretty=1`
+        //   )
+        //   .then((res) => {
+        //     if (res.data.status.code === 200) {
+        //       setAddress(res.data.results[0]);
+        //     }
+        //     console.log(res.data, "res location");
+        //   });
+        // ola maps implementation
+        const ola_map = await axios
           .get(
-            `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&pretty=1`
+            `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
+            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`
           )
           .then((res) => {
-            if (res.data.status.code === 200) {
-              setAddress(res.data.results[0]);
+            if (res.data.status === "ok") {
+              setOlaAddress(res.data.results[0]);
+              console.log(res.data.results[0], " ola res location");
             }
-            console.log(res.data, "res location");
           });
-        if (userDetails && userDetails.area) {
-          setCurretLocation({
-            ...currentLocation,
-            userArea: userDetails.area.name,
-            userCity: userDetails.area.city,
-          });
-          let userLocation = {
-            shopId: userDetails.area.shop.id,
-            latitude: latitude,
-            longitude: longitude,
-          };
-          localStorage.setItem("userLocation", JSON.stringify(userLocation));
-        }
+        // if (userDetails && userDetails.area) {
+        //   setCurretLocation({
+        //     ...currentLocation,
+        //     userArea: userDetails.area.name,
+        //     userCity: userDetails.area.city,
+        //   });
+        //   let userLocation = {
+        //     shopId: userDetails.area.shop.id,
+        //     latitude: latitude,
+        //     longitude: longitude,
+        //   };
+        //   localStorage.setItem("userLocation", JSON.stringify(userLocation));
+        // }
       });
     }
   }
@@ -73,12 +87,23 @@ export default function Nav() {
           </div>
           <div>
             {/* <h1>{currentLocation.userCity}</h1> */}
-            <h1> {(address && address.components.state) || "New Delhi"} </h1>
+            {(olaAddress && (
+              <h1>{`${olaAddress.address_components[2].short_name}`}</h1>
+            )) || <h1>New Delhi</h1>}
+            {/* 
+            open cage implementation
+            <h1> {(address && address.components.state) || "New Delhi"} </h1> */}
+            {/* 
+           open cage implementation
             <h2>
               {`${(address && address.components.road) || "Bikaner road"}, ${
                 (address && address.components.state_district) || "Laxmi Nagar"
               }  `}
-            </h2>
+            </h2> */}
+
+            {(olaAddress && (
+              <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}, ${olaAddress.address_components[2].short_name}`}</h2>
+            )) || <h2>Laxmi Nagar, Delhi</h2>}
           </div>
         </div>
         <div className="pages_flex">
