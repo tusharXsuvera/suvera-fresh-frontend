@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "../css/Nav.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -8,14 +8,22 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
 import { handleGetAPI } from "../apiCall/api";
+import debounce from "lodash.debounce";
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 import axios from "axios";
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [placeValue, setPlaceValue] = useState([]);
   const [olaAddress, setOlaAddress] = useState("");
   const [address, setAddress] = useState("");
   const [currentLocation, setCurretLocation] = useState({
     userArea: "Laxmi Nagar",
+    userCity: "New Delhi",
+  });
+  const [currentLocationOla, setCurretLocationOla] = useState({
+    userArea: "",
     userCity: "New Delhi",
   });
 
@@ -47,7 +55,7 @@ export default function Nav() {
           .then((res) => {
             if (res.data.status === "ok") {
               setOlaAddress(res.data.results[0]);
-              console.log(res.data.results[0], " ola res location");
+              // console.log(res.data.results[0], " ola res location");
             }
           });
         // if (userDetails && userDetails.area) {
@@ -67,12 +75,34 @@ export default function Nav() {
     }
   }
 
+  const fetchPlaces = async (searchQuery) => {
+    // console.log(searchQuery, "serach querys");
+    if (!searchQuery) {
+      setPlaceValue([]);
+      return null;
+    }
+    try {
+      const response = await axios.get(
+        `https://api.olamaps.io/places/v1/autocomplete?input=${searchQuery}&api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`
+      );
+      if (response.data) {
+        setPlaceValue(response.data.predictions);
+      }
+    } catch (error) {
+      console.error("Error fetching places:", error);
+    }
+  };
+
+  const debouncedFetchPlaces = useMemo(() => debounce(fetchPlaces, 500), []);
+  const placeSearch = (e) => {
+    debouncedFetchPlaces(e.target.value);
+  };
   useEffect(() => {
     getLocation();
   }, []);
 
   return (
-    <div className="global_layout nav_bg">
+    <nav className="global_layout nav_bg">
       <div className="split_nav">
         <div className="location_flex">
           <Link to="/">
@@ -87,9 +117,10 @@ export default function Nav() {
           </div>
           <div>
             {/* <h1>{currentLocation.userCity}</h1> */}
+
             {(olaAddress && (
-              <h1>{`${olaAddress.address_components[2].short_name}`}</h1>
-            )) || <h1>New Delhi</h1>}
+              <h1>{`${olaAddress.address_components[2].short_name}`} </h1>
+            )) || <h1>New Delhi </h1>}
             {/* 
             open cage implementation
             <h1> {(address && address.components.state) || "New Delhi"} </h1> */}
@@ -101,9 +132,14 @@ export default function Nav() {
               }  `}
             </h2> */}
 
-            {(olaAddress && (
-              <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}, ${olaAddress.address_components[2].short_name}`}</h2>
-            )) || <h2>Laxmi Nagar, Delhi</h2>}
+            {olaAddress && placeValue.length === 0 ? (
+              <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}`}</h2>
+            ) : (
+              <h2>{currentLocationOla.userArea.slice(0, 30)}...</h2>
+            )}
+          </div>
+          <div onClick={() => setShowSearch(true)}>
+            <IoIosArrowDropdownCircle size={25} className="cursor" />
           </div>
         </div>
         <div className="pages_flex">
@@ -165,6 +201,40 @@ export default function Nav() {
           </div>
         </Link>
       </div>
-    </div>
+      {showSearch && (
+        <div className="place_search">
+          <input
+            type="text"
+            name="placeSearch"
+            id="search"
+            className="search_input"
+            placeholder="Search your place..."
+            // value={currentLocationOla.userArea}
+            onChange={(e) => placeSearch(e)}
+          />
+          <ul className="flex_column">
+            {placeValue.length > 0 &&
+              placeValue.map((item, id) => {
+                const { description } = item;
+                return (
+                  <li
+                    className="search_heading"
+                    key={id}
+                    onClick={() => {
+                      setCurretLocationOla({
+                        ...currentLocationOla,
+                        userArea: description,
+                      }),
+                        setShowSearch(false);
+                    }}
+                  >
+                    {description}
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+      )}
+    </nav>
   );
 }

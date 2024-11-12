@@ -77,6 +77,11 @@ input::-webkit-inner-spin-button {
 .justify_center {
   justify-content: center;
 }
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
 @media screen and (max-width: 568px) {
   .global_layout {
     padding: 2em;
