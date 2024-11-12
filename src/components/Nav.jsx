@@ -12,7 +12,7 @@ import axios from "axios";
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
-  const [fullAddress, setFullAddress] = useState("");
+  const [address, setAddress] = useState("");
   const [currentLocation, setCurretLocation] = useState({
     userArea: "Laxmi Nagar",
     userCity: "New Delhi",
@@ -31,8 +31,10 @@ export default function Nav() {
             `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&pretty=1`
           )
           .then((res) => {
-            setFullAddress(res.data.results[0].formatted);
-            // console.log(res.data.results, "res location");
+            if (res.data.status.code === 200) {
+              setAddress(res.data.results[0]);
+            }
+            console.log(res.data, "res location");
           });
         if (userDetails && userDetails.area) {
           setCurretLocation({
@@ -52,7 +54,7 @@ export default function Nav() {
   }
 
   useEffect(() => {
-    getLocation();
+    // getLocation();
   }, []);
 
   return (
@@ -70,9 +72,13 @@ export default function Nav() {
             <FaLocationDot size={15} />
           </div>
           <div>
-            <h1>{currentLocation.userCity}</h1>
-            {/* <h2>{currentLocation.userArea}</h2> */}
-            <h2>{fullAddress}</h2>
+            {/* <h1>{currentLocation.userCity}</h1> */}
+            <h1> {(address && address.components.state) || "New Delhi"} </h1>
+            <h2>
+              {`${(address && address.components.road) || "Bikaner road"}, ${
+                (address && address.components.state_district) || "Laxmi Nagar"
+              }  `}
+            </h2>
           </div>
         </div>
         <div className="pages_flex">
