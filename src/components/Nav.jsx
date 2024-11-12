@@ -54,7 +54,7 @@ export default function Nav() {
   }
 
   useEffect(() => {
-    // getLocation();
+    getLocation();
   }, []);
 
   return (
