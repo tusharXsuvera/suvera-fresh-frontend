@@ -135,10 +135,15 @@ export default function Nav() {
             {olaAddress && placeValue.length === 0 ? (
               <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}`}</h2>
             ) : (
-              <h2>{currentLocationOla.userArea.slice(0, 30)}...</h2>
+              <h2>
+                {currentLocationOla.userArea.length > 29
+                  ? currentLocationOla.userArea.slice(0, 30)
+                  : currentLocationOla.userArea}
+                ...
+              </h2>
             )}
           </div>
-          <div onClick={() => setShowSearch(true)}>
+          <div onClick={() => setShowSearch(!showSearch)}>
             <IoIosArrowDropdownCircle size={25} className="cursor" />
           </div>
         </div>
