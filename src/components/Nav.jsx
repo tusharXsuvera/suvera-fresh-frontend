@@ -17,13 +17,12 @@ export default function Nav() {
   const [showSearch, setShowSearch] = useState(false);
   const [placeValue, setPlaceValue] = useState([]);
   const [olaAddress, setOlaAddress] = useState("");
-  const [address, setAddress] = useState("");
   const [currentLocation, setCurretLocation] = useState({
     userArea: "Laxmi Nagar",
     userCity: "New Delhi",
   });
   const [currentLocationOla, setCurretLocationOla] = useState({
-    userArea: "",
+    userArea: "Laxmi Nagar",
     userCity: "New Delhi",
   });
 
@@ -32,32 +31,9 @@ export default function Nav() {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
+
+        // shop & area
         // const userDetails = await handleGetAPI(endpoint);
-        let apiKey = `74a57e2076e542f0b757ae44c197f312`;
-        var query = `${latitude},${longitude}`;
-        // open cage implementation
-        // const userExactAddress = await axios
-        //   .get(
-        //     `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${query}&pretty=1`
-        //   )
-        //   .then((res) => {
-        //     if (res.data.status.code === 200) {
-        //       setAddress(res.data.results[0]);
-        //     }
-        //     console.log(res.data, "res location");
-        //   });
-        // ola maps implementation
-        const ola_map = await axios
-          .get(
-            `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
-            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`
-          )
-          .then((res) => {
-            if (res.data.status === "ok") {
-              setOlaAddress(res.data.results[0]);
-              // console.log(res.data.results[0], " ola res location");
-            }
-          });
         // if (userDetails && userDetails.area) {
         //   setCurretLocation({
         //     ...currentLocation,
@@ -71,12 +47,24 @@ export default function Nav() {
         //   };
         //   localStorage.setItem("userLocation", JSON.stringify(userLocation));
         // }
+
+        // ola maps location
+        const ola_map = await axios
+          .get(
+            `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
+            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`
+          )
+          .then((res) => {
+            if (res.data.status === "ok") {
+              setOlaAddress(res.data.results[0]);
+            }
+          });
       });
     }
   }
 
+  // ola map autoplaces
   const fetchPlaces = async (searchQuery) => {
-    // console.log(searchQuery, "serach querys");
     if (!searchQuery) {
       setPlaceValue([]);
       return null;
@@ -121,16 +109,6 @@ export default function Nav() {
             {(olaAddress && (
               <h1>{`${olaAddress.address_components[2].short_name}`} </h1>
             )) || <h1>New Delhi </h1>}
-            {/* 
-            open cage implementation
-            <h1> {(address && address.components.state) || "New Delhi"} </h1> */}
-            {/* 
-           open cage implementation
-            <h2>
-              {`${(address && address.components.road) || "Bikaner road"}, ${
-                (address && address.components.state_district) || "Laxmi Nagar"
-              }  `}
-            </h2> */}
 
             {olaAddress && placeValue.length === 0 ? (
               <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}`}</h2>
