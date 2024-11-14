@@ -7,7 +7,7 @@ import { BsCart3 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
-import { handleGetAPI } from "../apiCall/api";
+import { handleGetAPI, thirdPartAPI } from "../apiCall/api";
 import { getToken } from "firebase/messaging";
 import { messaging } from "../firebase";
 import debounce from "lodash.debounce";
@@ -52,16 +52,15 @@ export default function Nav() {
         // }
 
         // ola maps location
-        axios
-          .get(
-            `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
-            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`
-          )
-          .then((res) => {
-            if (res.data.status === "ok") {
-              setOlaAddress(res.data.results[0]);
-            }
-          });
+
+        let mapURL = `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
+            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
+
+        const mapResult = await thirdPartAPI(mapURL);
+
+        if (mapResult.status === "ok") {
+          setOlaAddress(mapResult.results[0]);
+        }
       });
     }
   }
@@ -72,23 +71,17 @@ export default function Nav() {
       setPlaceValue([]);
       return null;
     }
-    try {
-      const response = await axios.get(
-        `https://api.olamaps.io/places/v1/autocomplete?input=${searchQuery}&api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`
-      );
-      if (response.data) {
-        setPlaceValue(response.data.predictions);
-      }
-    } catch (error) {
-      console.error("Error fetching places:", error);
+
+    const url = `https://api.olamaps.io/places/v1/autocomplete?input=${searchQuery}&api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
+    const response = await thirdPartAPI(url);
+    if (response) {
+      setPlaceValue(response.predictions);
     }
   };
 
   const debouncedFetchPlaces = useMemo(() => debounce(fetchPlaces, 500), []);
-  const placeSearch = (e) => {
-    debouncedFetchPlaces(e.target.value);
-  };
 
+  // Notification permission
   const requestPermission = async () => {
     try {
       const permission = await Notification.requestPermission();
@@ -106,6 +99,7 @@ export default function Nav() {
       console.error("Error requesting notification permission", error);
     }
   };
+
   useEffect(() => {
     getLocation();
     requestPermission();
@@ -214,7 +208,7 @@ export default function Nav() {
             className="search_input"
             placeholder="Search your place..."
             // value={currentLocationOla.userArea}
-            onChange={(e) => placeSearch(e)}
+            onChange={(e) => debouncedFetchPlaces(e.target.value)}
           />
           <ul className="flex_column">
             {placeValue.length > 0 &&

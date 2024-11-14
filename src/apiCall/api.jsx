@@ -18,3 +18,11 @@ export const handlePostAPI = async (endpoint, formdata) => {
     toast.error(err.message, { autoClose: 1000 });
   }
 };
+export const thirdPartAPI = async (url) => {
+  try {
+    const result = await axios.get(url);
+    return result.data;
+  } catch (err) {
+    toast.error(err.message, { autoClose: 1000 });
+  }
+};
