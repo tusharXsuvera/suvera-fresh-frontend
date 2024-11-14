@@ -8,11 +8,9 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
 import { handleGetAPI, thirdPartAPI } from "../apiCall/api";
-import { getToken } from "firebase/messaging";
-import { messaging } from "../firebase";
+
 import debounce from "lodash.debounce";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import axios from "axios";
 
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
@@ -81,28 +79,8 @@ export default function Nav() {
 
   const debouncedFetchPlaces = useMemo(() => debounce(fetchPlaces, 500), []);
 
-  // Notification permission
-  const requestPermission = async () => {
-    try {
-      const permission = await Notification.requestPermission();
-      if (permission === "granted") {
-        console.log("Notification permission granted.");
-        const token = await getToken(messaging, {
-          vapidKey:
-            "BFvAxht7GRrP5Q2Rhbp1iU3QYWRctz4GQ-DG-nB6DGMTSODHbPJmY0O9b0q7IGI4UtCuHQMeU-MgL5lF5i7MKHY",
-        });
-        // Here, you can send the token to your backend server if needed
-      } else {
-        console.log("Unable to get permission to notify.");
-      }
-    } catch (error) {
-      console.error("Error requesting notification permission", error);
-    }
-  };
-
   useEffect(() => {
     getLocation();
-    requestPermission();
   }, []);
 
   return (

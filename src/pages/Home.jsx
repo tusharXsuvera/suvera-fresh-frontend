@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "@ant-design/react-slick";
 import { category } from "../utils/categories";
+import { getToken } from "firebase/messaging";
+import { messaging } from "../firebase";
 export default function Home() {
   var settings = {
     dots: true,
@@ -17,7 +19,27 @@ export default function Home() {
     slidesToScroll: 1,
   };
 
+  // Notification permission
+  const requestPermission = async () => {
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        console.log("Notification permission granted.");
+        const token = await getToken(messaging, {
+          vapidKey:
+            "BFvAxht7GRrP5Q2Rhbp1iU3QYWRctz4GQ-DG-nB6DGMTSODHbPJmY0O9b0q7IGI4UtCuHQMeU-MgL5lF5i7MKHY",
+        });
+        // Here, you can send the token to your backend server if needed
+      } else {
+        console.log("Unable to get permission to notify.");
+      }
+    } catch (error) {
+      console.error("Error requesting notification permission", error);
+    }
+  };
+
   useEffect(() => {
+    requestPermission();
     window.scrollTo(0, 0);
   }, []);
   return (
