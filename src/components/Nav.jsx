@@ -8,9 +8,12 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
 import { handleGetAPI } from "../apiCall/api";
+import { getToken } from "firebase/messaging";
+import { messaging } from "../firebase";
 import debounce from "lodash.debounce";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import axios from "axios";
+
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
   const [showMenu, setShowMenu] = useState(false);
@@ -49,7 +52,7 @@ export default function Nav() {
         // }
 
         // ola maps location
-        const ola_map = await axios
+        axios
           .get(
             `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
             &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`
@@ -85,8 +88,27 @@ export default function Nav() {
   const placeSearch = (e) => {
     debouncedFetchPlaces(e.target.value);
   };
+
+  const requestPermission = async () => {
+    try {
+      const permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        console.log("Notification permission granted.");
+        const token = await getToken(messaging, {
+          vapidKey:
+            "BFvAxht7GRrP5Q2Rhbp1iU3QYWRctz4GQ-DG-nB6DGMTSODHbPJmY0O9b0q7IGI4UtCuHQMeU-MgL5lF5i7MKHY",
+        });
+        // Here, you can send the token to your backend server if needed
+      } else {
+        console.log("Unable to get permission to notify.");
+      }
+    } catch (error) {
+      console.error("Error requesting notification permission", error);
+    }
+  };
   useEffect(() => {
     getLocation();
+    requestPermission();
   }, []);
 
   return (
@@ -105,10 +127,9 @@ export default function Nav() {
           </div>
           <div>
             {/* <h1>{currentLocation.userCity}</h1> */}
-
             {(olaAddress && (
               <h1>{`${olaAddress.address_components[2].short_name}`} </h1>
-            )) || <h1>New Delhi </h1>}
+            )) || <h1> New Delhi </h1>}
 
             {olaAddress && placeValue.length === 0 ? (
               <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}`}</h2>
@@ -198,7 +219,7 @@ export default function Nav() {
           <ul className="flex_column">
             {placeValue.length > 0 &&
               placeValue.map((item, id) => {
-                const { description } = item;
+                const { description, terms } = item;
                 return (
                   <li
                     className="search_heading"
@@ -207,6 +228,7 @@ export default function Nav() {
                       setCurretLocationOla({
                         ...currentLocationOla,
                         userArea: description,
+                        userCity: terms[4].value,
                       }),
                         setShowSearch(false);
                     }}
