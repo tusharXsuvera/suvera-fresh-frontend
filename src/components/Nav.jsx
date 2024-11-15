@@ -34,31 +34,31 @@ export default function Nav() {
         let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
 
         // shop & area
-        // const userDetails = await handleGetAPI(endpoint);
-        // if (userDetails && userDetails.area) {
-        //   setCurretLocation({
-        //     ...currentLocation,
-        //     userArea: userDetails.area.name,
-        //     userCity: userDetails.area.city,
-        //   });
-        //   let userLocation = {
-        //     shopId: userDetails.area.shop.id,
-        //     latitude: latitude,
-        //     longitude: longitude,
-        //   };
-        //   localStorage.setItem("userLocation", JSON.stringify(userLocation));
-        // }
+        const userDetails = await handleGetAPI(endpoint);
+        if (userDetails && userDetails.area) {
+          setCurretLocation({
+            ...currentLocation,
+            userArea: userDetails.area.name,
+            userCity: userDetails.area.city,
+          });
+          let userLocation = {
+            shopId: userDetails.area.shop.id,
+            latitude: latitude,
+            longitude: longitude,
+          };
+          localStorage.setItem("userLocation", JSON.stringify(userLocation));
+        }
 
         // ola maps location
 
-        let mapURL = `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
-            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
+        // let mapURL = `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
+        //     &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
 
-        const mapResult = await thirdPartAPI(mapURL);
+        // const mapResult = await thirdPartAPI(mapURL);
 
-        if (mapResult.status === "ok") {
-          setOlaAddress(mapResult.results[0]);
-        }
+        // if (mapResult.status === "ok") {
+        //   setOlaAddress(mapResult.results[0]);
+        // }
       });
     }
   }
@@ -98,12 +98,12 @@ export default function Nav() {
             <FaLocationDot size={15} />
           </div>
           <div>
-            {/* <h1>{currentLocation.userCity}</h1> */}
-            {(olaAddress && (
+            <h1>{currentLocation.userCity}</h1>
+            {/* {(olaAddress && (
               <h1>{`${olaAddress.address_components[2].short_name}`} </h1>
-            )) || <h1> New Delhi </h1>}
+            )) || <h1> New Delhi </h1>} */}
 
-            {olaAddress && placeValue.length === 0 ? (
+            {/* {olaAddress && placeValue.length === 0 ? (
               <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}`}</h2>
             ) : (
               <h2>
@@ -112,11 +112,12 @@ export default function Nav() {
                   : currentLocationOla.userArea}
                 ...
               </h2>
-            )}
+            )} */}
+            <h2>{currentLocation.userArea}</h2>
           </div>
-          <div onClick={() => setShowSearch(!showSearch)}>
+          {/* <div onClick={() => setShowSearch(!showSearch)}>
             <IoIosArrowDropdownCircle size={25} className="cursor" />
-          </div>
+          </div> */}
         </div>
         <div className="pages_flex">
           <Link to="/" className="pages">
