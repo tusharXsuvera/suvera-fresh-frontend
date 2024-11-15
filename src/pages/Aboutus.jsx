@@ -61,7 +61,7 @@ export default function Aboutus() {
             </p>
           </div>
           <img
-            src="/images/vision.jpg"
+            src="/images/appfront.jpg"
             alt="mobile screen"
             className="vision"
           />
@@ -115,7 +115,7 @@ export default function Aboutus() {
           </p>
           <div className="methods_img__flex">
             <img
-              src="/images/kimaa.JPG"
+              src="/images/muttonbone.JPG"
               alt="methods image"
               className="methods_img"
             />

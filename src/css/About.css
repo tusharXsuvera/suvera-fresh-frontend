@@ -44,6 +44,7 @@
 .vision {
   width: 100%;
   min-width: 250px;
+  aspect-ratio: 1.5;
 }
 .quotes_left {
   width: 100%;
