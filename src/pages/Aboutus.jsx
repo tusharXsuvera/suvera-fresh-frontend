@@ -28,15 +28,13 @@ export default function Aboutus() {
               Welcome to SuveraFresh, your go-to website and app for the
               freshest meats and eggs delivered right to your doorstep! We
               specialize in providing top-quality, fresh chicken, mutton, and
-              eggs, ensuring you have the best ingredients for your meals.
-              <br />
-              With our commitment to freshness, we guarantee that every product
-              you receive is of the highest standard, straight from farm to
-              table. Our tagline, “Fresh Everyday,” reflects our promise to
-              deliver freshness daily, making it easier for you to enjoy
-              nutritious and delicious meals. Whether you’re planning a family
-              dinner or a special gathering, SuveraFresh is here to meet your
-              needs.
+              eggs, ensuring you have the best ingredients for your meals. With
+              our commitment to freshness, we guarantee that every product you
+              receive is of the highest standard, straight from farm to table.
+              Our tagline, “Fresh Everyday,” reflects our promise to deliver
+              freshness daily, making it easier for you to enjoy nutritious and
+              delicious meals. Whether you’re planning a family dinner or a
+              special gathering, SuveraFresh is here to meet your needs.
             </p>
           </div>
         </section>
