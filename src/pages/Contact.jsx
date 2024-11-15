@@ -40,7 +40,7 @@ export default function Contact() {
           <div className="contact_types">
             <img src="/images/call.png" alt="email us" />
             <h1>By Email</h1>
-            <span>suverafresh@gmail.com</span>
+            <span>support@suverafresh.com</span>
           </div>
           <div className="contact_types">
             <img src="/images/call.png" alt="email us" />

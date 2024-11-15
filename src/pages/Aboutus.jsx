@@ -115,17 +115,17 @@ export default function Aboutus() {
           </p>
           <div className="methods_img__flex">
             <img
-              src="/images/mutton.jpg"
+              src="/images/kimaa.JPG"
               alt="methods image"
               className="methods_img"
             />
             <img
-              src="/images/chicken.jpg"
+              src="/images/fishnormal.JPG"
               alt="methods image"
               className="methods_img"
             />
             <img
-              src="/images/delivery.jpg"
+              src="/images/bonelesschicken.JPG"
               alt="methods image"
               className="methods_img"
             />
