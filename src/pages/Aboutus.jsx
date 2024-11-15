@@ -23,16 +23,20 @@ export default function Aboutus() {
             ></iframe>
           </div>
           <div className="section_rgt">
-            <h1 className="main_heading">
-              Foodchow - Free Food Ordering Solution
-            </h1>
+            <h1 className="main_heading">SuveraFresh - Fresh Everyday</h1>
             <p className="para">
-              Foodchow is an online and mobile food ordering system which we
-              have developed for restaurant owners and food lovers. Through
-              Foodchow we are helping customers to discover the best restaurants
-              in city. If you are restaurant owner, you can easily register your
-              restaurant and upload restaurant menu to start receiving online
-              orders through this fast growing portal without any cost.
+              Welcome to SuveraFresh, your go-to website and app for the
+              freshest meats and eggs delivered right to your doorstep! We
+              specialize in providing top-quality, fresh chicken, mutton, and
+              eggs, ensuring you have the best ingredients for your meals.
+              <br />
+              With our commitment to freshness, we guarantee that every product
+              you receive is of the highest standard, straight from farm to
+              table. Our tagline, “Fresh Everyday,” reflects our promise to
+              deliver freshness daily, making it easier for you to enjoy
+              nutritious and delicious meals. Whether you’re planning a family
+              dinner or a special gathering, SuveraFresh is here to meet your
+              needs.
             </p>
           </div>
         </section>
@@ -42,16 +46,20 @@ export default function Aboutus() {
           className="mobile_flex global_layout"
           style={{ paddingTop: "0px", paddingBottom: "0px" }}
         >
-          <div className="quotes ">
+          <div className="quotes_left">
             <h1 className="main_heading">Our Promise</h1>
             <p className="para">
-              Quality You Can Trust: We source our meats from trusted local
-              farms that prioritize animal welfare and sustainable practices.
-              Freshness Guaranteed: Our products are processed and packaged with
-              care, ensuring you receive only the freshest cuts. Variety for
-              Every Taste: From grass-fed eggs, fish, and organic chicken to
-              specialty meats and seasonal selections, our diverse range caters
-              to every palate.
+              <b> Quality You Can Trust: </b>
+              We source our meats from trusted local farms that prioritize
+              animal welfare and sustainable practices.
+              <br />
+              <b>Freshness Guaranteed: </b>
+              Our products are processed and packaged with care, ensuring you
+              receive only the freshest cuts.
+              <br />
+              <b>Variety for Every Taste: </b>
+              From grass-fed eggs, fish, and organic chicken to specialty meats
+              and seasonal selections, our diverse range caters to every palate.
             </p>
           </div>
           <img
@@ -59,21 +67,25 @@ export default function Aboutus() {
             alt="mobile screen"
             className="vision"
           />
-          <div className="quotes">
+          <div className="quotes_rgt">
             <h1 className="main_heading">Why Choose Us?</h1>
             <p className="para">
-              Convenience: No more trips to the grocery store. Enjoy the ease of
-              having fresh meat delivered straight to you. Expert Advice: Our
-              team is here to help! Whether you need cooking tips or recipe
-              ideas, we're just a message away. Satisfaction Guaranteed: If
-              you're not completely satisfied with your order, let us know, and
-              we'll make it right.
+              <b>Convenience: </b>
+              No more trips to the grocery store. Enjoy the ease of having fresh
+              meat delivered straight to you.
+              <br />
+              <b>Expert Advice: </b>Our team is here to help! Whether you need
+              cooking tips or recipe ideas, we're just a message away.
+              <br />
+              <b>Satisfaction Guaranteed: </b>
+              If you're not completely satisfied with your order, let us know,
+              and we'll make it right.
             </p>
           </div>
         </div>
       </div>
       <div className="global_layout">
-        <section className="ceo_section">
+        {/* <section className="ceo_section">
           <div className="ceo_details">
             <h1 className="main_heading">Salim Khan, CEO</h1>
             <p className="para">
@@ -92,16 +104,15 @@ export default function Aboutus() {
             </p>
           </div>
           <img src="/images/ceo.jpg" alt="ceo image" className="ceo_image" />
-        </section>
+        </section> */}
         <section className="ordering_methods">
           <h1 className="main_heading about-title">
-            FoodChow has introduced three different methods in ordering the
-            food.
+            SuveraFresh has introduced different categories in ordering.
           </h1>
           <p className="para about-title">
-            Customer of FoodChow can select any method for food ordering.
+            Customer of SuveraFresh can select any category for food ordering.
             <br />
-            FoodChow is also providing facility to offer all there or any of
+            SuveraFresh is also providing facility to offer all there or any of
             them ordering method to restaurant owner.
           </p>
           <div className="methods_img__flex">

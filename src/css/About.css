@@ -37,16 +37,23 @@
   font-size: 1.8em;
   font-family: "poppins, sans-serif";
   color: #33373d;
-  letter-spacing: 1px;
   text-align: justify;
 }
 .vision {
   width: 100%;
   min-width: 250px;
 }
-.quotes {
+.quotes_left {
   width: 100%;
-  padding: 3.5em 0px;
+  padding: 3em 3em 3em 0em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.quotes_rgt {
+  width: 100%;
+  padding: 3em 0em 3em 3em;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -123,7 +130,10 @@
   .mobile_flex {
     flex-wrap: wrap;
   }
-  .quotes {
+  .quotes_left {
+    max-width: 100%;
+  }
+  .quotes_rgt {
     max-width: 100%;
   }
   .vision {
