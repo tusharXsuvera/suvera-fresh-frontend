@@ -61,7 +61,7 @@ export default function Aboutus() {
             </p>
           </div>
           <img
-            src="/images/appfront.jpg"
+            src="/images/about test01.jpg"
             alt="mobile screen"
             className="vision"
           />

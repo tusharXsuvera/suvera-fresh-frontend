@@ -45,7 +45,7 @@ export default function Contact() {
           <div className="contact_types">
             <img src="/images/call.png" alt="email us" />
             <h1>By Call</h1>
-            <span>1800-4190-788</span>
+            <span>811 411 5959</span>
           </div>
           <div className="contact_types">
             <img src="/images/location.png" alt="email us" />
