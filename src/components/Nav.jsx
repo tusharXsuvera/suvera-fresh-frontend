@@ -52,7 +52,7 @@ export default function Nav() {
         // ola maps location
 
         let mapURL = `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
-            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
+            &api_key=${import.meta.env.VITE_OLA_API_KEY}`;
 
         const mapResult = await thirdPartAPI(mapURL);
 
@@ -70,7 +70,9 @@ export default function Nav() {
       return null;
     }
 
-    const url = `https://api.olamaps.io/places/v1/autocomplete?input=${searchQuery}&api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
+    const url = `https://api.olamaps.io/places/v1/autocomplete?input=${searchQuery}&api_key=${
+      import.meta.env.VITE_OLA_API_KEY
+    }`;
     const response = await thirdPartAPI(url);
     if (response) {
       setPlaceValue(response.predictions);
