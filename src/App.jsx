@@ -22,7 +22,7 @@ function App() {
             <Route path="product-detail/:id" element={<ProductDetail />} />
             <Route path="about-us" element={<Aboutus />} />
             <Route path="contact-us" element={<Contact />} />
-            <Route path="checkout" element={<Checkout />} />
+            {/* <Route path="checkout" element={<Checkout />} /> */}
           </Route>
           <Route path="*" element={<NoPage />} />
         </Routes>
