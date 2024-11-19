@@ -17,6 +17,10 @@ export default function Nav() {
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [placeValue, setPlaceValue] = useState([]);
+  const [currentLocationOla, setCurretLocationOla] = useState({
+    userArea: "Laxmi Nagar",
+    userCity: "New Delhi",
+  });
   // const [currentLocation, setCurretLocation] = useState({
   //   userArea: "Laxmi Nagar",
   //   userCity: "New Delhi",
@@ -26,10 +30,6 @@ export default function Nav() {
   //     userArea: userDetails.area.name,
   //     userCity: userDetails.area.city,
   //   });
-  const [currentLocationOla, setCurretLocationOla] = useState({
-    userArea: "Laxmi Nagar",
-    userCity: "New Delhi",
-  });
 
   async function findShop(latitude, longitude) {
     // console.log("lat", latitude, "lng", longitude, "call it");
@@ -121,8 +121,8 @@ export default function Nav() {
           <div>
             {/* <h1>{currentLocation.userCity}</h1> */}
             <h1>
-              {currentLocationOla.userCity.length > 25
-                ? currentLocationOla.userCity.slice(0, 26)
+              {currentLocationOla.userCity.length > 20
+                ? currentLocationOla.userCity.slice(0, 21)
                 : currentLocationOla.userCity}
             </h1>
             <h2>

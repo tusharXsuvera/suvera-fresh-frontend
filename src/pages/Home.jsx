@@ -39,7 +39,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    requestPermission();
+    // requestPermission();
     window.scrollTo(0, 0);
   }, []);
   return (
