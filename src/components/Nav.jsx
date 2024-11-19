@@ -21,15 +21,6 @@ export default function Nav() {
     userArea: "Laxmi Nagar",
     userCity: "New Delhi",
   });
-  // const [currentLocation, setCurretLocation] = useState({
-  //   userArea: "Laxmi Nagar",
-  //   userCity: "New Delhi",
-  // });
-  //   setCurretLocation({
-  //     ...currentLocation,
-  //     userArea: userDetails.area.name,
-  //     userCity: userDetails.area.city,
-  //   });
 
   async function findShop(latitude, longitude) {
     // console.log("lat", latitude, "lng", longitude, "call it");
@@ -119,7 +110,6 @@ export default function Nav() {
             <FaLocationDot size={15} />
           </div>
           <div>
-            {/* <h1>{currentLocation.userCity}</h1> */}
             <h1>
               {currentLocationOla.userCity.length > 20
                 ? currentLocationOla.userCity.slice(0, 21)
@@ -131,7 +121,6 @@ export default function Nav() {
                 : currentLocationOla.userArea}
               ...
             </h2>
-            {/* <h2>{currentLocation.userArea}</h2> */}
           </div>
           <div onClick={() => setShowSearch(!showSearch)}>
             <IoIosArrowDropdownCircle size={25} className="cursor" />
