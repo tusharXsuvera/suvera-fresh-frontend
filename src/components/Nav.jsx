@@ -120,7 +120,11 @@ export default function Nav() {
           </div>
           <div>
             {/* <h1>{currentLocation.userCity}</h1> */}
-            <h1>{currentLocationOla.userCity}</h1>
+            <h1>
+              {currentLocationOla.userCity.length > 25
+                ? currentLocationOla.userCity.slice(0, 26)
+                : currentLocationOla.userCity}
+            </h1>
             <h2>
               {currentLocationOla.userArea.length > 25
                 ? currentLocationOla.userArea.slice(0, 26)
