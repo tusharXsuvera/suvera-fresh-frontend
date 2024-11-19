@@ -17,48 +17,68 @@ export default function Nav() {
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [placeValue, setPlaceValue] = useState([]);
-  const [olaAddress, setOlaAddress] = useState("");
-  const [currentLocation, setCurretLocation] = useState({
-    userArea: "Laxmi Nagar",
-    userCity: "New Delhi",
-  });
+  // const [currentLocation, setCurretLocation] = useState({
+  //   userArea: "Laxmi Nagar",
+  //   userCity: "New Delhi",
+  // });
+  //   setCurretLocation({
+  //     ...currentLocation,
+  //     userArea: userDetails.area.name,
+  //     userCity: userDetails.area.city,
+  //   });
   const [currentLocationOla, setCurretLocationOla] = useState({
     userArea: "Laxmi Nagar",
     userCity: "New Delhi",
   });
 
+  async function findShop(latitude, longitude) {
+    // console.log("lat", latitude, "lng", longitude, "call it");
+    let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
+    const userDetails = await handleGetAPI(endpoint);
+
+    if (userDetails && userDetails.area) {
+      console.log(userDetails, "userdetails response");
+      let userLocation = {
+        shopId: userDetails.area.shop.id,
+        latitude: latitude,
+        longitude: longitude,
+      };
+      localStorage.setItem("userLocation", JSON.stringify(userLocation));
+    } else {
+      setShowSearch(true);
+      console.log("area is null");
+      localStorage.removeItem("userLocation");
+      alert(
+        `Oops !Currently We are not Operational in this area. Please Select Another One! `
+      );
+    }
+  }
+
   function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
-        let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
-
-        // shop & area
-        const userDetails = await handleGetAPI(endpoint);
-        if (userDetails && userDetails.area) {
-          setCurretLocation({
-            ...currentLocation,
-            userArea: userDetails.area.name,
-            userCity: userDetails.area.city,
-          });
-          let userLocation = {
-            shopId: userDetails.area.shop.id,
-            latitude: latitude,
-            longitude: longitude,
-          };
-          localStorage.setItem("userLocation", JSON.stringify(userLocation));
-        }
 
         // ola maps location
+        let mapURL = `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
+            &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
 
-        // let mapURL = `https://api.olamaps.io/places/v1/reverse-geocode?latlng=${latitude},${longitude}
-        //     &api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
-
-        // const mapResult = await thirdPartAPI(mapURL);
-
-        // if (mapResult.status === "ok") {
-        //   setOlaAddress(mapResult.results[0]);
-        // }
+        const mapResult = await thirdPartAPI(mapURL);
+        // console.log(mapResult, "map result ");
+        if (mapResult.results.length > 0) {
+          setCurretLocationOla({
+            ...currentLocationOla,
+            userCity: mapResult.results[0].formatted_address
+              .split(",")[1]
+              .trim()
+              .split(" ")[0],
+            userArea: mapResult.results[0].formatted_address,
+          });
+          findShop(
+            mapResult.results[0].geometry.location.lat,
+            mapResult.results[0].geometry.location.lng
+          );
+        }
       });
     }
   }
@@ -73,6 +93,7 @@ export default function Nav() {
     const url = `https://api.olamaps.io/places/v1/autocomplete?input=${searchQuery}&api_key=98ZZf8NXgYGwFOpKBe5uqJh3LySMEboUjqe09mN1`;
     const response = await thirdPartAPI(url);
     if (response) {
+      // console.log(response, "fetch response");
       setPlaceValue(response.predictions);
     }
   };
@@ -98,28 +119,21 @@ export default function Nav() {
             <FaLocationDot size={15} />
           </div>
           <div>
-            <h1>{currentLocation.userCity}</h1>
-            {/* {(olaAddress && (
-              <h1>{`${olaAddress.address_components[2].short_name}`} </h1>
-            )) || <h1> New Delhi </h1>} */}
-
-            {/* {olaAddress && placeValue.length === 0 ? (
-              <h2>{`${olaAddress.name}, ${olaAddress.address_components[3].short_name}`}</h2>
-            ) : (
-              <h2>
-                {currentLocationOla.userArea.length > 29
-                  ? currentLocationOla.userArea.slice(0, 30)
-                  : currentLocationOla.userArea}
-                ...
-              </h2>
-            )} */}
-            <h2>{currentLocation.userArea}</h2>
+            {/* <h1>{currentLocation.userCity}</h1> */}
+            <h1>{currentLocationOla.userCity}</h1>
+            <h2>
+              {currentLocationOla.userArea.length > 25
+                ? currentLocationOla.userArea.slice(0, 26)
+                : currentLocationOla.userArea}
+              ...
+            </h2>
+            {/* <h2>{currentLocation.userArea}</h2> */}
           </div>
-          {/* <div onClick={() => setShowSearch(!showSearch)}>
+          <div onClick={() => setShowSearch(!showSearch)}>
             <IoIosArrowDropdownCircle size={25} className="cursor" />
-          </div> */}
+          </div>
         </div>
-        <div className="pages_flex">
+        <div className="pages_flex justify_end">
           <Link to="/" className="pages">
             <h3>Home</h3>
           </Link>
@@ -133,7 +147,7 @@ export default function Nav() {
             <h3>Contact Us</h3>
           </Link>
         </div>
-        <div className="flex_wrap">
+        <div className="flex_wrap justify_end" style={{ flex: 1 }}>
           <div>
             <Link to="/cart" className="split_nav">
               <BsCart3 size={20} />
@@ -192,7 +206,7 @@ export default function Nav() {
           <ul className="flex_column">
             {placeValue.length > 0 &&
               placeValue.map((item, id) => {
-                const { description, terms } = item;
+                const { description, structured_formatting, geometry } = item;
                 return (
                   <li
                     className="search_heading"
@@ -200,9 +214,10 @@ export default function Nav() {
                     onClick={() => {
                       setCurretLocationOla({
                         ...currentLocationOla,
-                        userArea: description,
-                        userCity: terms[4].value,
+                        userCity: structured_formatting.main_text,
+                        userArea: structured_formatting.secondary_text,
                       }),
+                        findShop(geometry.location.lat, geometry.location.lng),
                         setShowSearch(false);
                     }}
                   >
