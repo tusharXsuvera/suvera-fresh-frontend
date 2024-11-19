@@ -119,7 +119,10 @@
   .hamburger {
     display: block;
   }
-  .pages {
+  .pages_flex {
     display: none;
+  }
+  .location_flex {
+    flex: 3;
   }
 }
