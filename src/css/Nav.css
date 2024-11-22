@@ -115,6 +115,14 @@
   list-style-type: none;
   /* padding: 5px 10px; */
 }
+.login_section {
+  flex: 1;
+  align-items: center;
+  gap: 2em;
+}
+.login_signup__btn {
+  border-radius: 4px;
+}
 @media screen and (max-width: 899px) {
   .hamburger {
     display: block;

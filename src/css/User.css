@@ -1,0 +1,38 @@
+.login_signup__container {
+  background-color: black;
+  position: relative;
+}
+
+.login_signup__bg {
+  opacity: 0.5;
+  background-image: url("/public/images/rawmeat.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+.popup {
+  width: 100%;
+  position: absolute;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.popup_heading {
+  color: white;
+  font-size: 48px;
+  font-family: "Montserrat, Raleway, Arial, sans-serif";
+}
+.popup_container {
+  width: 100%;
+  max-width: 500px;
+  min-width: 200px;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -8,7 +8,6 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { CiCircleRemove } from "react-icons/ci";
 import { handleGetAPI, thirdPartAPI } from "../apiCall/api";
-
 import debounce from "lodash.debounce";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
@@ -39,7 +38,7 @@ export default function Nav() {
       setShowSearch(true);
       console.log("area is null");
       localStorage.removeItem("userLocation");
-      alert(
+      console.log(
         `Oops !Currently We are not Operational in this area. Please Select Another One! `
       );
     }
@@ -140,7 +139,7 @@ export default function Nav() {
             <h3>Contact Us</h3>
           </Link>
         </div>
-        <div className="flex_wrap justify_end" style={{ flex: 1 }}>
+        <div className="login_section flex_wrap justify_end">
           <div>
             <Link to="/cart" className="split_nav">
               <BsCart3 size={20} />
@@ -154,6 +153,9 @@ export default function Nav() {
           <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
             <RxHamburgerMenu size={20} className="cursor" />
           </div>
+          <Link to="/login">
+            <button className="add_btn login_signup__btn">Login</button>
+          </Link>
         </div>
       </div>
       <div className={showMenu ? "ham_menu " : "ham_menu hidden"}>
