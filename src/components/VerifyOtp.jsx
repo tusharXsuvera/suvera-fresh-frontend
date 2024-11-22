@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-export default function Signup() {
+export default function VerifyOtp() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const onSubmit = (data) => console.log(data);
 
   return (
@@ -20,41 +19,25 @@ export default function Signup() {
       <form onSubmit={handleSubmit(onSubmit)} className="flex_column">
         <div>
           <input
-            {...register("name", { required: true })}
-            placeholder="Enter Full Name"
-            type="text"
-            className="user_input"
-          />
-          {errors.name && <span>This field is required*</span>}
-        </div>
-        <div>
-          <input
-            {...register("phoneNumber", { required: true })}
-            placeholder="Enter Mobile Number"
+            {...register("otp", { required: true })}
+            placeholder="Enter OTP send to your number"
             type="number"
             className="user_input"
           />
-          {errors.phoneNumber && <span>This field is required*</span>}
+          {errors.otp && <span>This field is required*</span>}
+          <h2 style={{ marginTop: "1em" }}>OTP sent successfully!</h2>
         </div>
-        <div>
-          <input
-            {...register("password", { required: true })}
-            placeholder="Enter Password"
-            type="password"
-            className="user_input"
-          />
-          {errors.password && <span>This field is required*</span>}
-        </div>
-        <input type="submit" className="add_btn cursor" value="Signup" />
+        <input type="submit" className="add_btn cursor" value="Verify OTP" />
       </form>
       <div className="flex_column text_center">
-        <Link to="/login">
-          <h3 className="link_heading">
-            Already have an account? <span className="basecolor">Login</span>
-          </h3>
-        </Link>
         <div>
-          <input type="checkbox" className="cursor" />{" "}
+          <h3 className="link_heading">
+            Didn't receive the OTP?{" "}
+            <span className="basecolor cursor">Resend</span>
+          </h3>
+        </div>
+        <div>
+          <input type="checkbox" className="cursor shift_checkbox" />{" "}
           <span className="link_heading">
             By signing in you agree to our{" "}
             <span className="basecolor">terms and conditions</span> &

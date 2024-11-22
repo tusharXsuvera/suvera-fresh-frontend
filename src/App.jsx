@@ -27,6 +27,7 @@ function App() {
           </Route>
           <Route path="login" element={<User />} />
           <Route path="signup" element={<User />} />
+          <Route path="verify-otp" element={<User />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

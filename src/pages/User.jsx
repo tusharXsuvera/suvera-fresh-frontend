@@ -2,6 +2,7 @@ import React from "react";
 import "../css/User.css";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import VerifyOtp from "../components/VerifyOtp";
 export default function User() {
   return (
     <div className="login_signup__container">
@@ -10,7 +11,9 @@ export default function User() {
         <h1 className="popup_heading">
           Meat Your Expectations - Fresh, Juicy, and Delicious.
         </h1>
-        {window.location.pathname === "/login" ? <Login /> : <Signup />}
+        {window.location.pathname === "/login" && <Login />}
+        {window.location.pathname === "/signup" && <Signup />}
+        {window.location.pathname === "/verify-otp" && <VerifyOtp />}
       </div>
     </div>
   );

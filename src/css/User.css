@@ -20,7 +20,7 @@
 }
 .popup_heading {
   color: white;
-  font-size: 48px;
+  font-size: 4.8em;
   font-family: "Montserrat, Raleway, Arial, sans-serif";
 }
 .popup_container {
@@ -53,4 +53,8 @@
   font-size: 1.4em;
   font-family: sans-serif;
   color: #343232;
+}
+.shift_checkbox {
+  position: relative;
+  top: 2px;
 }
