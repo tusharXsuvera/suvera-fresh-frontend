@@ -45,7 +45,7 @@ export default function Login() {
           </h3>
         </Link>
         <div>
-          <input type="checkbox" className="cursor" />{" "}
+          <input type="checkbox" className="cursor shift_checkbox" />{" "}
           <span className="link_heading">
             By signing in you agree to our{" "}
             <span className="basecolor">terms and conditions</span> &
