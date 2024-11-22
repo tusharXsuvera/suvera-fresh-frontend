@@ -6,7 +6,7 @@ export default function User() {
   return (
     <div className="login_signup__container">
       <div className="login_signup__bg"></div>
-      <div className="popup ">
+      <div className="popup flex_column">
         <h1 className="popup_heading">
           Meat Your Expectations - Fresh, Juicy, and Delicious.
         </h1>

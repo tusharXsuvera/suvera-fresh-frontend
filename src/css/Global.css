@@ -80,8 +80,12 @@ input::-webkit-inner-spin-button {
 .flex_column {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
 }
+.basecolor {
+  color: var(--maroon);
+}
+
 @media screen and (max-width: 568px) {
   .global_layout {
     padding: 2em;
