@@ -1,8 +1,9 @@
 import React from "react";
 import "../css/User.css";
-import Login from "../components/Login";
-import Signup from "../components/Signup";
-import VerifyOtp from "../components/VerifyOtp";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
+import VerifyOtp from "../pages/VerifyOtp";
+import ForgotPass from "../pages/ForgotPass";
 export default function User() {
   return (
     <div className="login_signup__container">
@@ -14,6 +15,7 @@ export default function User() {
         {window.location.pathname === "/login" && <Login />}
         {window.location.pathname === "/signup" && <Signup />}
         {window.location.pathname === "/verify-otp" && <VerifyOtp />}
+        {window.location.pathname === "/forgot-password" && <ForgotPass />}
       </div>
     </div>
   );

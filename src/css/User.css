@@ -5,7 +5,7 @@
 
 .login_signup__bg {
   opacity: 0.5;
-  background-image: url("/public/images/rawmeat.webp");
+  background-image: url("/images/rawmeat.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
