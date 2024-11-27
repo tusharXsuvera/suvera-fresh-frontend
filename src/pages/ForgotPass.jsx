@@ -34,7 +34,11 @@ export default function ForgotPass() {
           />
           {errors.confirmPassword && <span>This field is required*</span>}
         </div>
-        <input type="submit" className="add_btn cursor" value="Update" />
+        <input
+          type="submit"
+          className="add_btn cursor"
+          value="Update Password"
+        />
       </form>
     </div>
   );
