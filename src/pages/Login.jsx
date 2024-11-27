@@ -1,15 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { handlePostAPI } from "../apiCall/api";
 
 export default function Login() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    let endpoint = "/auth/signin";
+    // const result = handlePostAPI(endpoint, data);
+    console.log(data);
+    // navigate("/verify-otp");
+  };
 
   return (
     <div className="popup_container flex_column">
@@ -20,21 +27,39 @@ export default function Login() {
       <form onSubmit={handleSubmit(onSubmit)} className="flex_column">
         <div>
           <input
-            {...register("phoneNumber", { required: true })}
+            {...register("phoneNumber", {
+              required: "Mobile number is required*",
+              pattern: {
+                value: /^[0-9]{10}$/,
+                message: "Mobile number must be exactly 10 digits",
+              },
+            })}
             placeholder="Enter Mobile Number"
             type="number"
             className="user_input"
           />
-          {errors.phoneNumber && <span>This field is required*</span>}
+          {errors.phoneNumber && (
+            <p className="basecolor">{errors.phoneNumber.message}</p>
+          )}
         </div>
         <div>
           <input
-            {...register("password", { required: true })}
+            {...register("password", {
+              required: "Password is required*",
+              pattern: {
+                value:
+                  /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
+                message:
+                  "Password must contain at least 8 characters, one uppercase letter, one number, and one symbol",
+              },
+            })}
             placeholder="Enter Password"
             type="password"
             className="user_input"
           />
-          {errors.password && <span>This field is required*</span>}
+          {errors.password && (
+            <p className="basecolor">{errors.password.message}</p>
+          )}
         </div>
         <input type="submit" className="add_btn cursor" value="Login" />
       </form>

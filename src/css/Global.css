@@ -80,7 +80,7 @@ input::-webkit-inner-spin-button {
 .flex_column {
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1.5em;
 }
 .basecolor {
   color: var(--maroon);
