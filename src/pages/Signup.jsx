@@ -43,7 +43,7 @@ export default function Signup() {
                 message: "Mobile number must be exactly 10 digits",
               },
             })}
-            placeholder="Enter Mobile Number"
+            placeholder="+91 Enter Mobile Number"
             type="number"
             className="user_input"
           />

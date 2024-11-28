@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { handlePostAPI } from "../apiCall/api";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ export default function Login() {
     let endpoint = "/auth/signin";
     // const result = handlePostAPI(endpoint, data);
     console.log(data);
-    // navigate("/verify-otp");
+    navigate("/verify-otp");
   };
 
   return (
@@ -34,7 +33,7 @@ export default function Login() {
                 message: "Mobile number must be exactly 10 digits",
               },
             })}
-            placeholder="Enter Mobile Number"
+            placeholder="+91 Enter Mobile Number"
             type="number"
             className="user_input"
           />
