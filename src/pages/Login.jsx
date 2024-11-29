@@ -15,6 +15,7 @@ export default function Login() {
   const onSubmit = async (data) => {
     let endpoint = "/auth/signin";
     const result = await handlePostAPI(endpoint, data);
+    console.log(result, "");
     if (result && !result.user.verified) {
       navigate("/verify-otp", { state: { phoneNumber: data.phoneNumber } });
     } else if (result && result.token) {
