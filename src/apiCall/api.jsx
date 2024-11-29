@@ -9,7 +9,7 @@ export const handleGetAPI = async (endpoint) => {
     );
     return result.data;
   } catch (err) {
-    toast.error(err.message, { autoClose: 1000 });
+    toast.error(err.message, { autoClose: 3000 });
   }
 };
 export const handlePostAPI = async (endpoint, formdata) => {
@@ -20,7 +20,7 @@ export const handlePostAPI = async (endpoint, formdata) => {
     );
     return result.data;
   } catch (err) {
-    toast.error(err.message, { autoClose: 1000 });
+    toast.error(err.response.data.message, { autoClose: 3000 });
   }
 };
 export const thirdPartAPI = async (url) => {
@@ -28,6 +28,6 @@ export const thirdPartAPI = async (url) => {
     const result = await axios.get(url);
     return result.data;
   } catch (err) {
-    toast.error(err.message, { autoClose: 1000 });
+    toast.error(err.message, { autoClose: 3000 });
   }
 };

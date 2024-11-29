@@ -11,11 +11,14 @@ export default function Signup() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     let endpoint = "/auth/signup";
-    // const result = handlePostAPI(endpoint, data);
-    console.log(data);
-    navigate("/verify-otp");
+    const result = await handlePostAPI(endpoint, data);
+    if (result) {
+      navigate("/verify-otp", { state: { phoneNumber: data.phoneNumber } });
+    } else {
+      navigate("/login");
+    }
   };
 
   return (

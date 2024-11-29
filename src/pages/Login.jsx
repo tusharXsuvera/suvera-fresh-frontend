@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { handlePostAPI } from "../apiCall/api";
+import { setToken } from "../utils/helperFunc";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -10,11 +12,14 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     let endpoint = "/auth/signin";
-    // const result = handlePostAPI(endpoint, data);
-    console.log(data);
-    navigate("/verify-otp");
+    const result = await handlePostAPI(endpoint, data);
+    if (result && !result.user.verified) {
+      navigate("/verify-otp", { state: { phoneNumber: data.phoneNumber } });
+    } else if (result && result.token) {
+      if (setToken(result.token)) navigate("/");
+    }
   };
 
   return (

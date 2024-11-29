@@ -10,6 +10,7 @@ import { CiCircleRemove } from "react-icons/ci";
 import { handleGetAPI, thirdPartAPI } from "../apiCall/api";
 import debounce from "lodash.debounce";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { deleteToken, getToken } from "../utils/helperFunc";
 
 export default function Nav() {
   const quantity = useSelector((state) => state.cartSlice);
@@ -153,9 +154,15 @@ export default function Nav() {
           <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
             <RxHamburgerMenu size={20} className="cursor" />
           </div>
-          <Link to="/login">
-            <button className="add_btn login_signup__btn">Login</button>
-          </Link>
+          {getToken() ? (
+            <Link to="/login" onClick={() => deleteToken()}>
+              <button className="add_btn login_signup__btn">Logout</button>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <button className="add_btn login_signup__btn">Login</button>
+            </Link>
+          )}
         </div>
       </div>
       <div className={showMenu ? "ham_menu " : "ham_menu hidden"}>

@@ -1,14 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { handlePostAPI } from "../apiCall/api";
+import { setToken } from "../utils/helperFunc";
 
 export default function VerifyOtp() {
+  const location = useLocation();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data) => {
+    let endpoint = "/auth/verify";
+    let formData = {
+      otp: data.otp,
+      phoneNumber: location.state?.phoneNumber,
+    };
+
+    const result = await handlePostAPI(endpoint, formData);
+    if (result && result.token) {
+      if (setToken(result.token)) navigate("/");
+    }
+  };
 
   return (
     <div className="popup_container flex_column">
@@ -19,7 +35,17 @@ export default function VerifyOtp() {
       <form onSubmit={handleSubmit(onSubmit)} className="flex_column">
         <div>
           <input
-            {...register("otp", { required: true })}
+            {...register("otp", {
+              required: "OTP is required*",
+              maxLength: {
+                value: 6,
+                message: "Number cannot exceed 6 digits",
+              },
+              pattern: {
+                value: /^[0-9]*$/,
+                message: "Only numbers are allowed",
+              },
+            })}
             placeholder="Enter OTP send to your number"
             type="number"
             className="user_input"
@@ -29,7 +55,7 @@ export default function VerifyOtp() {
         </div>
         <input type="submit" className="add_btn cursor" value="Verify OTP" />
       </form>
-      <div className="flex_column text_center">
+      {/* <div className="flex_column text_center">
         <div>
           <h3 className="link_heading">
             Didn't receive the OTP?{" "}
@@ -44,7 +70,7 @@ export default function VerifyOtp() {
             <span className="basecolor"> privacy policy</span>
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
