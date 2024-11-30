@@ -2,21 +2,31 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const handleGetAPI = async (endpoint) => {
+export const handleGetAPI = async (endpoint, token) => {
   try {
     const result = await axios.get(
-      `${import.meta.env.VITE_DEV_HOST}${endpoint}`
+      `${import.meta.env.VITE_DEV_HOST}${endpoint}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, //
+        },
+      }
     );
     return result.data;
   } catch (err) {
     toast.error(err.message, { autoClose: 3000 });
   }
 };
-export const handlePostAPI = async (endpoint, formdata) => {
+export const handlePostAPI = async (endpoint, formdata, token) => {
   try {
     const result = await axios.post(
       `${import.meta.env.VITE_DEV_HOST}${endpoint}`,
-      formdata
+      formdata,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      }
     );
     return result.data;
   } catch (err) {

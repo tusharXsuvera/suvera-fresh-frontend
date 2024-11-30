@@ -11,6 +11,7 @@ import Cart from "./pages/Cart";
 import Layout from "./components/Layout";
 import Checkout from "./pages/Checkout";
 import { ToastContainer } from "react-toastify";
+import ProtectedAuth from "./components/ProtectedAuth";
 function App() {
   return (
     <>
@@ -29,6 +30,8 @@ function App() {
           <Route path="signup" element={<User />} />
           <Route path="verify-otp" element={<User />} />
           <Route path="forgot-password" element={<User />} />
+          {/* <Route path="protected" element={<ProtectedAuth />} /> */}
+
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

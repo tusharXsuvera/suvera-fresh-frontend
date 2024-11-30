@@ -8,7 +8,7 @@ export const setToken = (authToken) => {
 export const getToken = () => {
   const token = Cookies.get("authToken");
   if (token) {
-    return true;
+    return token;
   } else {
     return false;
   }

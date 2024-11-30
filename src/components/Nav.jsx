@@ -25,7 +25,7 @@ export default function Nav() {
   async function findShop(latitude, longitude) {
     // console.log("lat", latitude, "lng", longitude, "call it");
     let endpoint = `shops/area-shop?latitude=${latitude}&longitude=${longitude}`;
-    const userDetails = await handleGetAPI(endpoint);
+    // const userDetails = await handleGetAPI(endpoint);
 
     if (userDetails && userDetails.area) {
       console.log(userDetails, "userdetails response");
