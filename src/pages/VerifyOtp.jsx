@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { handlePostAPI } from "../apiCall/api";
 import { setToken } from "../utils/helperFunc";
 
 export default function VerifyOtp() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const {
     register,
